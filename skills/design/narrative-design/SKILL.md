@@ -1,25 +1,59 @@
 ---
 name: narrative-design
-description: TODO: describe when to activate this skill.
+description: Build narrative structure, world logic, dialogue intent, and player motivation that support the game loop.
 origin: everything-game-dev-code
+category: design
 ---
 
-# narrative-design
+# Narrative Design
 
-## When to Use
-- TODO
+## Purpose
+Build narrative structure, world logic, dialogue intent, and player motivation that support the game loop.
 
-## How It Works
-- TODO
+## Use When
+- story, dialogue, lore, or character arcs need structure
+- narrative and gameplay feel disconnected
+- content growth is making canon hard to manage
 
 ## Inputs
-- TODO
+- game pillars
+- quest or mission structure
+- world rules
+- localization constraints
+
+## Process
+1. define narrative goals, arcs, and world rules
+2. link story beats to gameplay and objective flow
+3. write or outline dialogue with implementation constraints in mind
+4. create a canon reference and naming consistency rules
+5. plan subtitle, VO, and localization implications early
 
 ## Outputs
-- TODO
+- narrative brief
+- canon notes
+- dialogue or quest specs
+- localization and VO considerations
+
+## Quality Bar
+- supports the core fantasy and player goals
+- defines readable rules, edge cases, and feedback
+- creates concrete hooks for tuning, telemetry, and QA
+
+## Common Failure Modes
+- adding systems that do not serve the core loop
+- shipping vague rules that QA and engineering must guess at
+- tuning without instrumentation or hypotheses
 
 ## Related Agents
-- TODO
+- narrative-designer
+- gdd-designer
+- dialogue-content-pipeline
 
 ## Related Commands
-- TODO
+- gdd
+- quest-design
+- update-docs
+
+## Notes
+- Keep this skill aligned with the relevant rules layer and current project documentation.
+- If engine-specific constraints materially change the workflow, hand off to the matching engine skill or engine-specific reviewer.

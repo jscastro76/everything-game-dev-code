@@ -1,25 +1,59 @@
 ---
 name: compliance-checklists
-description: TODO: describe when to activate this skill.
+description: Create operational checklists for legal, accessibility, privacy, platform, and product compliance obligations.
 origin: everything-game-dev-code
+category: qa-release
 ---
 
-# compliance-checklists
+# Compliance Checklists
 
-## When to Use
-- TODO
+## Purpose
+Create operational checklists for legal, accessibility, privacy, platform, and product compliance obligations.
 
-## How It Works
-- TODO
+## Use When
+- compliance requirements are spread across teams
+- a launch checklist is incomplete
+- a platform or market imposes new constraints
 
 ## Inputs
-- TODO
+- platform rules
+- data practices
+- store policies
+- accessibility scope
+
+## Process
+1. collect required compliance categories
+2. turn each obligation into a reviewable checklist item
+3. identify owners and evidence required to pass
+4. track waivers or unresolved questions explicitly
+5. review the checklist at milestone and release gates
 
 ## Outputs
-- TODO
+- compliance checklist set
+- evidence requirements
+- owner map
+- waiver tracking
+
+## Quality Bar
+- turns risk into explicit evidence and ownership
+- keeps release blockers visible instead of implicit
+- connects quality decisions to milestone and platform impact
+
+## Common Failure Modes
+- severity inflation or minimization without player-impact context
+- treating waived risks as invisible
+- submission checklists that are incomplete or stale
 
 ## Related Agents
-- TODO
+- security-reviewer
+- console-compliance-reviewer
+- release-manager
 
 ## Related Commands
-- TODO
+- cert-check
+- release-check
+- verify
+
+## Notes
+- Keep this skill aligned with the relevant rules layer and current project documentation.
+- If engine-specific constraints materially change the workflow, hand off to the matching engine skill or engine-specific reviewer.

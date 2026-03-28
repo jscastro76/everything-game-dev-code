@@ -1,25 +1,59 @@
 ---
 name: input-abstraction
-description: TODO: describe when to activate this skill.
+description: Design input around player intent and supported device families instead of hardcoding device-specific behavior everywhere.
 origin: everything-game-dev-code
+category: engineering-common
 ---
 
-# input-abstraction
+# Input Abstraction
 
-## When to Use
-- TODO
+## Purpose
+Design input around player intent and supported device families instead of hardcoding device-specific behavior everywhere.
 
-## How It Works
-- TODO
+## Use When
+- multiple input devices are supported
+- rebinds or accessibility matter
+- UI and gameplay input are becoming tangled
 
 ## Inputs
-- TODO
+- action list
+- supported devices
+- UI flow
+- accessibility requirements
+
+## Process
+1. define actions by intent
+2. separate raw device input from gameplay/UI action handling
+3. document action states and context switching
+4. support rebinding and persistence where needed
+5. test edge cases around focus, pause, and overlays
 
 ## Outputs
-- TODO
+- action map
+- context model
+- device support notes
+- rebinding requirements
+
+## Quality Bar
+- makes ownership, state flow, and failure behavior explicit
+- improves maintainability without over-abstracting
+- supports testing, debugging, and safe iteration
+
+## Common Failure Modes
+- coupling systems through hidden globals or timing assumptions
+- writing logic that is hard to test or debug
+- optimizing the wrong layer before measuring
 
 ## Related Agents
-- TODO
+- ui-programmer
+- accessibility-reviewer
+- gameplay-programmer
 
 ## Related Commands
-- TODO
+- ui-flow-review
+- verify
+- tech-design
+
+## Notes
+- Keep this skill aligned with the relevant rules layer and current project documentation.
+- If engine-specific constraints materially change the workflow, hand off to the matching engine skill or engine-specific reviewer.

@@ -1,25 +1,59 @@
 ---
 name: memory-budgeting
-description: TODO: describe when to activate this skill.
+description: Define residency and memory budgets so content, streaming, and runtime systems fit target platforms.
 origin: everything-game-dev-code
+category: engineering-common
 ---
 
-# memory-budgeting
+# Memory Budgeting
 
-## When to Use
-- TODO
+## Purpose
+Define residency and memory budgets so content, streaming, and runtime systems fit target platforms.
 
-## How It Works
-- TODO
+## Use When
+- the project has constrained hardware targets
+- memory spikes cause instability
+- large content sets are growing
 
 ## Inputs
-- TODO
+- target platforms
+- asset classes
+- streaming model
+- system residency assumptions
+
+## Process
+1. budget memory by asset and system class
+2. define who owns loading and unloading decisions
+3. measure peak and steady-state memory in representative flows
+4. flag accidental hard references or pinned content
+5. connect fixes to content and architecture owners
 
 ## Outputs
-- TODO
+- memory budget sheet
+- residency rules
+- peak-memory review notes
+- ownership map
+
+## Quality Bar
+- makes ownership, state flow, and failure behavior explicit
+- improves maintainability without over-abstracting
+- supports testing, debugging, and safe iteration
+
+## Common Failure Modes
+- coupling systems through hidden globals or timing assumptions
+- writing logic that is hard to test or debug
+- optimizing the wrong layer before measuring
 
 ## Related Agents
-- TODO
+- performance-reviewer
+- technical-artist
+- build-engineer
 
 ## Related Commands
-- TODO
+- memory-budget
+- verify
+- release-check
+
+## Notes
+- Keep this skill aligned with the relevant rules layer and current project documentation.
+- If engine-specific constraints materially change the workflow, hand off to the matching engine skill or engine-specific reviewer.

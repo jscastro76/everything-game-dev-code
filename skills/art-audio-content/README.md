@@ -1,3 +1,12 @@
 # art-audio-content
 
-Skills grouped by domain.
+Content pipeline skills for art direction, technical art, VFX, audio, localization, dialogue, and cinematic content.
+
+## Included skills
+- `art-bible`: Define a visual direction that artists, UI, technical art, and marketing can execute consistently.
+- `technical-art-pipeline`: Align content creation, shaders, import settings, runtime presentation, and performance constraints.
+- `vfx-pipeline`: Create VFX authoring and integration rules that preserve readability, style fit, and performance.
+- `audio-implementation`: Integrate music, SFX, VO, mixing, and reactive audio behavior so audio supports gameplay and UX.
+- `localization-pipeline`: Prepare the project for translation, cultural adaptation, text expansion, and voice or subtitle variability.
+- `dialogue-content-pipeline`: Manage dialogue and text content so it remains editable, implementable, localizable, and testable.
+- `cinematic-pipeline`: Plan and implement cinematic content without breaking gameplay flow, performance, or content maintainability.

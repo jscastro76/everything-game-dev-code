@@ -1,25 +1,59 @@
 ---
 name: release-readiness
-description: TODO: describe when to activate this skill.
+description: Evaluate whether a build is genuinely ready for external testing, certification, store submission, or launch.
 origin: everything-game-dev-code
+category: qa-release
 ---
 
-# release-readiness
+# Release Readiness
 
-## When to Use
-- TODO
+## Purpose
+Evaluate whether a build is genuinely ready for external testing, certification, store submission, or launch.
 
-## How It Works
-- TODO
+## Use When
+- approaching a release candidate
+- stakeholders need a go/no-go signal
+- quality or compliance risk is unclear
 
 ## Inputs
-- TODO
+- QA matrix
+- open bug list
+- build health
+- known platform and operational risks
+
+## Process
+1. review gating defects and known waivers
+2. confirm build reproducibility and version correctness
+3. check compliance, submission, and content readiness
+4. evaluate rollback or hotfix readiness
+5. issue a clear go/no-go recommendation with rationale
 
 ## Outputs
-- TODO
+- release readiness report
+- go/no-go recommendation
+- blocker list
+- waiver register
+
+## Quality Bar
+- turns risk into explicit evidence and ownership
+- keeps release blockers visible instead of implicit
+- connects quality decisions to milestone and platform impact
+
+## Common Failure Modes
+- severity inflation or minimization without player-impact context
+- treating waived risks as invisible
+- submission checklists that are incomplete or stale
 
 ## Related Agents
-- TODO
+- release-manager
+- qa-lead
+- console-compliance-reviewer
 
 ## Related Commands
-- TODO
+- release-check
+- cert-check
+- verify
+
+## Notes
+- Keep this skill aligned with the relevant rules layer and current project documentation.
+- If engine-specific constraints materially change the workflow, hand off to the matching engine skill or engine-specific reviewer.
