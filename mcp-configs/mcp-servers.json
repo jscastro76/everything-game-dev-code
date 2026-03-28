@@ -1,25 +1,321 @@
 {
+  "$schema": "../schemas/plugin.schema.json",
+  "version": 1,
+  "description": "Recommended MCP server registry for the game-development scaffold. This file is intentionally configuration-oriented and uses placeholder commands or environment keys where local setup differs by team.",
+  "profiles": {
+    "baseline": [
+      "filesystem",
+      "git",
+      "github",
+      "ripgrep",
+      "fetch-docs"
+    ],
+    "unity": [
+      "filesystem",
+      "git",
+      "github",
+      "ripgrep",
+      "fetch-docs",
+      "unity-docs",
+      "unity-package-registry",
+      "issue-tracker"
+    ],
+    "unreal": [
+      "filesystem",
+      "git",
+      "github",
+      "ripgrep",
+      "fetch-docs",
+      "unreal-docs",
+      "issue-tracker"
+    ],
+    "godot": [
+      "filesystem",
+      "git",
+      "github",
+      "ripgrep",
+      "fetch-docs",
+      "godot-docs",
+      "issue-tracker"
+    ],
+    "liveops": [
+      "filesystem",
+      "git",
+      "github",
+      "ripgrep",
+      "fetch-docs",
+      "issue-tracker",
+      "telemetry",
+      "storefront-docs"
+    ],
+    "release": [
+      "filesystem",
+      "git",
+      "github",
+      "ripgrep",
+      "fetch-docs",
+      "issue-tracker",
+      "storefront-docs",
+      "ci-builds"
+    ]
+  },
   "servers": {
+    "filesystem": {
+      "category": "local",
+      "enabled_by_default": true,
+      "recommended": true,
+      "purpose": "Read and traverse the working repository, generated docs, logs, and local output files.",
+      "when_to_use": [
+        "inspect project structure",
+        "read generated design or technical docs",
+        "review logs or exported reports"
+      ],
+      "transport": "stdio",
+      "command": "<your-filesystem-mcp-server-command>",
+      "args": [
+        "<project-root>"
+      ],
+      "env": {},
+      "notes": [
+        "Restrict access to the project root or approved workspace directories.",
+        "Prefer read-first workflows; write access should be intentional."
+      ]
+    },
+    "git": {
+      "category": "source-control",
+      "enabled_by_default": true,
+      "recommended": true,
+      "purpose": "Inspect branches, diffs, blame, recent changes, and release history.",
+      "when_to_use": [
+        "review change history",
+        "trace regressions",
+        "prepare release notes or patch notes"
+      ],
+      "transport": "stdio",
+      "command": "<your-git-mcp-server-command>",
+      "args": [],
+      "env": {},
+      "notes": [
+        "Keep repository scope explicit.",
+        "Use together with filesystem access for code and content reviews."
+      ]
+    },
     "github": {
-      "status": "todo"
+      "category": "source-control",
+      "enabled_by_default": true,
+      "recommended": true,
+      "purpose": "Review pull requests, issues, discussions, and remote repository state.",
+      "when_to_use": [
+        "read PR discussions",
+        "triage issues",
+        "inspect CI status or release metadata"
+      ],
+      "transport": "stdio",
+      "command": "<your-github-mcp-server-command>",
+      "args": [],
+      "env": {
+        "GITHUB_TOKEN": "<required>"
+      },
+      "notes": [
+        "Use least-privilege tokens.",
+        "Useful for PR review, release planning, and issue triage agents."
+      ]
+    },
+    "ripgrep": {
+      "category": "search",
+      "enabled_by_default": true,
+      "recommended": true,
+      "purpose": "Fast codebase and content text search for symbols, config keys, and repeated patterns.",
+      "when_to_use": [
+        "trace feature wiring",
+        "find references across large projects",
+        "audit naming or migration impact"
+      ],
+      "transport": "stdio",
+      "command": "<your-search-mcp-server-command>",
+      "args": [
+        "<project-root>"
+      ],
+      "env": {},
+      "notes": [
+        "Best paired with filesystem and git servers.",
+        "Critical for large Unity, Unreal, and Godot repositories."
+      ]
+    },
+    "fetch-docs": {
+      "category": "documentation",
+      "enabled_by_default": true,
+      "recommended": true,
+      "purpose": "Retrieve official documentation pages, package docs, API references, and public technical references.",
+      "when_to_use": [
+        "verify engine APIs",
+        "check package docs",
+        "confirm release or platform requirements"
+      ],
+      "transport": "stdio",
+      "command": "<your-web-docs-mcp-server-command>",
+      "args": [],
+      "env": {},
+      "notes": [
+        "Prefer official docs domains in production workflows.",
+        "Useful for all engine-specific reviewers and build resolvers."
+      ]
     },
     "unity-docs": {
-      "status": "todo"
+      "category": "engine-docs",
+      "enabled_by_default": false,
+      "recommended": true,
+      "purpose": "Unity scripting, manual, package, and platform-build documentation.",
+      "when_to_use": [
+        "confirm Unity API usage",
+        "review package behavior",
+        "debug build or import workflows"
+      ],
+      "transport": "stdio",
+      "command": "<your-unity-docs-mcp-server-command>",
+      "args": [],
+      "env": {},
+      "notes": [
+        "Use for Unity-only sessions and profiles.",
+        "Keep package-version context explicit in docs and technical design."
+      ]
+    },
+    "unity-package-registry": {
+      "category": "engine-docs",
+      "enabled_by_default": false,
+      "recommended": true,
+      "purpose": "Lookup Unity package metadata, versions, changelogs, and dependency notes.",
+      "when_to_use": [
+        "review package upgrade impact",
+        "compare package versions",
+        "investigate package dependencies"
+      ],
+      "transport": "stdio",
+      "command": "<your-unity-package-mcp-server-command>",
+      "args": [],
+      "env": {},
+      "notes": [
+        "Useful for build engineers, reviewers, and package governance workflows."
+      ]
     },
     "unreal-docs": {
-      "status": "todo"
+      "category": "engine-docs",
+      "enabled_by_default": false,
+      "recommended": true,
+      "purpose": "Unreal documentation for framework classes, packaging, rendering, networking, and editor workflows.",
+      "when_to_use": [
+        "confirm Unreal framework usage",
+        "review packaging requirements",
+        "check rendering or networking constraints"
+      ],
+      "transport": "stdio",
+      "command": "<your-unreal-docs-mcp-server-command>",
+      "args": [],
+      "env": {},
+      "notes": [
+        "Use for Unreal-only sessions and profile installs."
+      ]
     },
     "godot-docs": {
-      "status": "todo"
+      "category": "engine-docs",
+      "enabled_by_default": false,
+      "recommended": true,
+      "purpose": "Godot class reference, export docs, scene/node docs, and editor workflow guidance.",
+      "when_to_use": [
+        "confirm node or signal usage",
+        "review export settings",
+        "check scene architecture patterns"
+      ],
+      "transport": "stdio",
+      "command": "<your-godot-docs-mcp-server-command>",
+      "args": [],
+      "env": {},
+      "notes": [
+        "Use for Godot-only sessions and profile installs."
+      ]
     },
-    "steamworks": {
-      "status": "todo"
+    "issue-tracker": {
+      "category": "production",
+      "enabled_by_default": false,
+      "recommended": true,
+      "purpose": "Read and update backlog items, bugs, milestones, and release tasks in the team issue tracker.",
+      "when_to_use": [
+        "triage bugs",
+        "track milestone scope",
+        "audit release readiness"
+      ],
+      "transport": "stdio",
+      "command": "<your-issue-tracker-mcp-server-command>",
+      "args": [],
+      "env": {
+        "ISSUE_TRACKER_TOKEN": "<required-if-needed>",
+        "ISSUE_TRACKER_BASE_URL": "<required-if-needed>"
+      },
+      "notes": [
+        "Recommended for producer, QA, release, and doc-updater workflows.",
+        "Keep write permissions intentional."
+      ]
     },
-    "playfab": {
-      "status": "todo"
+    "telemetry": {
+      "category": "analytics",
+      "enabled_by_default": false,
+      "recommended": true,
+      "purpose": "Inspect dashboards, KPI tables, event definitions, and post-launch metrics.",
+      "when_to_use": [
+        "review retention or progression metrics",
+        "audit telemetry coverage",
+        "analyze liveops results"
+      ],
+      "transport": "stdio",
+      "command": "<your-telemetry-mcp-server-command>",
+      "args": [],
+      "env": {
+        "ANALYTICS_TOKEN": "<required-if-needed>",
+        "ANALYTICS_PROJECT": "<required-if-needed>"
+      },
+      "notes": [
+        "Use for telemetry analysts, liveops managers, and mobile F2P reviews.",
+        "Avoid exposing unnecessary player-level data."
+      ]
     },
-    "firebase": {
-      "status": "todo"
+    "storefront-docs": {
+      "category": "release",
+      "enabled_by_default": false,
+      "recommended": true,
+      "purpose": "Review store submission rules, metadata requirements, release checklists, and platform documentation.",
+      "when_to_use": [
+        "prepare release submissions",
+        "verify metadata requirements",
+        "check platform release constraints"
+      ],
+      "transport": "stdio",
+      "command": "<your-storefront-docs-mcp-server-command>",
+      "args": [],
+      "env": {},
+      "notes": [
+        "Useful for release-manager and console-compliance-reviewer workflows."
+      ]
+    },
+    "ci-builds": {
+      "category": "release",
+      "enabled_by_default": false,
+      "recommended": true,
+      "purpose": "Inspect CI pipelines, build artifacts, test outputs, and packaging logs.",
+      "when_to_use": [
+        "investigate build failures",
+        "review test output",
+        "audit release candidates"
+      ],
+      "transport": "stdio",
+      "command": "<your-ci-mcp-server-command>",
+      "args": [],
+      "env": {
+        "CI_TOKEN": "<required-if-needed>",
+        "CI_BASE_URL": "<required-if-needed>"
+      },
+      "notes": [
+        "Recommended for build engineers, release managers, and engine build resolvers."
+      ]
     }
   }
 }
