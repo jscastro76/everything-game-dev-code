@@ -1,17 +1,29 @@
 ---
-description: Design level flow and beats.
+description: Design or revise level flow, beats, pacing, and encounter structure.
 ---
 
 # /level-beat
 
 ## Purpose
-Design level flow and beats.
+Design or revise level flow, beats, pacing, and encounter structure.
+
+## Use When
+- The task needs a repeatable command entry point rather than an ad hoc workflow.
+- The scope is clear enough to define expected outputs and validation.
+- The result should align with the scaffold rules and agent boundaries.
 
 ## Invokes Agents
-- TODO
+- level-designer
+- systems-designer
 
 ## Required Skills
-- TODO
+- level-design
 
 ## Expected Output
-- TODO
+- A structured result that can be reviewed, acted on, or handed off.
+- Clear assumptions, risks, and open questions where relevant.
+- Updated documentation or follow-up tasks when the command changes project understanding.
+
+## Notes
+- Keep engine-neutral commands free of engine-specific implementation detail unless an engine-specific command is being called.
+- Escalate to the relevant reviewer or specialist when risks exceed the command's normal scope.
