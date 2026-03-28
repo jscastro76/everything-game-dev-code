@@ -11,3 +11,4 @@ private/
 AGENTS.override.md
 CLAUDE.local.md
 .claude/settings.local.json
+.vscode
