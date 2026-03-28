@@ -1,6 +1,40 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "package-manager.schema.json",
+  "$id": "https://example.com/schemas/package-manager.schema.json",
+  "title": "Package Manager Settings",
   "type": "object",
-  "additionalProperties": true
+  "additionalProperties": true,
+  "properties": {
+    "manager": {
+      "type": "string"
+    },
+    "version": {
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "lockfile": {
+      "type": "string"
+    },
+    "registries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "scope": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
 }

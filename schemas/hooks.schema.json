@@ -1,6 +1,91 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "hooks.schema.json",
+  "$id": "https://example.com/schemas/hooks.schema.json",
+  "title": "Hooks Configuration",
   "type": "object",
-  "additionalProperties": true
+  "additionalProperties": false,
+  "required": [
+    "hooks"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "hooks": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "enum": [
+          "PreToolUse",
+          "PostToolUse",
+          "Stop",
+          "SessionStart",
+          "SessionEnd"
+        ]
+      },
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "matcher",
+            "description"
+          ],
+          "properties": {
+            "matcher": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": {
+              "type": "string",
+              "minLength": 1
+            },
+            "command": {
+              "type": "string",
+              "minLength": 1
+            },
+            "script": {
+              "type": "string",
+              "minLength": 1
+            },
+            "enabled": {
+              "type": "boolean"
+            },
+            "timeout_ms": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "env": {
+              "type": "object",
+              "propertyNames": {
+                "pattern": "^[A-Z_][A-Z0-9_]*$"
+              },
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          },
+          "anyOf": [
+            {
+              "required": [
+                "description"
+              ]
+            },
+            {
+              "required": [
+                "command"
+              ]
+            },
+            {
+              "required": [
+                "script"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
 }
