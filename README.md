@@ -1,5 +1,7 @@
 # Everything Game Dev Code
 
+Initial structure inspired by `everything-claude-code`, but focused on game development and separated by engine to avoid interference between Unity, Unreal, and Godot.
+
 A universal scaffold for AI-assisted game development workflows across **Unity**, **Unreal Engine**, and **Godot**, with strict engine isolation and shared cross-discipline standards.
 
 This repository is designed as a structured operating system for game projects, not just a prompt collection. It combines:
