@@ -1,122 +1,63 @@
-# CONTRIBUTING.md
+# Contributing
 
-Thank you for contributing to this scaffold.
+## Goal
+Contributions should strengthen the scaffold without breaking naming consistency, engine isolation, or harness portability.
 
-## Purpose
+## Contribution Types
+You can contribute:
+- new or improved rules
+- new agents
+- new commands
+- new skills
+- context refinements
+- hook improvements
+- harness adapter improvements
+- tests and validation logic
+- root-file maintenance and repo operations
 
-This repository is intended to be a reusable foundation for AI-assisted game development workflows.
-Contributions should improve clarity, consistency, reusability, engine isolation, and production usefulness.
+## Structure Rules
+Follow the repository structure exactly unless there is a strong reason to evolve it:
+- one agent per file in `agents/`
+- one command per file in `commands/`
+- one skill per folder with `SKILL.md`
+- engine-specific rules stay inside their engine layer
+- harness-specific files should stay thin and point back to shared content
 
-## What Good Contributions Look Like
+## Writing Standards
+Use English for repository-facing content unless the project intentionally forks localized versions.
 
-Strong contributions usually do one or more of the following:
+Prefer:
+- explicit ownership
+- operational clarity
+- reviewable steps
+- maintainable naming
+- reusable patterns
 
-- improve an existing rule, skill, command, or template
-- add a reusable workflow pattern
-- improve engine-specific guidance without polluting common layers
-- strengthen install profiles, schemas, tests, or examples
-- make the scaffold safer to use in real production contexts
+Avoid:
+- placeholder-only content where a real operational draft is expected
+- duplicated standards across multiple layers without a clear extension model
+- engine mixing inside common files
 
-## Contribution Principles
+## Before Opening Changes
+Check:
+- naming consistency
+- engine boundary correctness
+- whether a command or skill already covers the pattern
+- whether docs and hooks need updates too
+- whether tests or validation should change
 
-### 1. Preserve structure
-Do not introduce new folders, naming schemes, or hierarchy changes unless there is a strong architectural reason.
-The repository relies on consistent naming and predictable routing.
-
-### 2. Respect engine isolation
-Do not mix Unity, Unreal, and Godot implementation details inside common layers.
-If guidance is engine-specific, it belongs in the relevant engine pack.
-
-### 3. Keep files purposeful
-Every file should have a clear job.
-Avoid bloated documents that combine unrelated concerns.
-If a concept needs a separate reusable home, create it intentionally and wire it into the system.
-
-### 4. Prefer reusable patterns over one-off advice
-A contribution is more valuable when it helps future tasks as well as the current one.
-
-### 5. Maintain operational quality
-Contributions should be:
-
-- clear
-- structured
-- internally consistent
-- realistic for game production
-- aligned with existing docs, manifests, and schemas
-
-## Areas You Can Contribute To
-
-- `rules/`
-- `agents/`
-- `commands/`
-- `skills/`
-- `docs/templates/`
-- `docs/orchestration/`
-- `manifests/`
-- `schemas/`
-- `tests/`
-- `examples/`
-- adapters, MCP configs, and scripts
-
-## Before You Add Something New
-
-Ask:
-
-- does this already exist elsewhere in the repo?
-- should this extend an existing file instead?
-- is it common, or engine-specific?
-- does it need schema/test coverage?
-- does it affect install profiles or orchestration docs?
-
-## Style Expectations
-
-### Writing
-- be concrete
-- avoid vague placeholder language
-- separate principles, process, deliverables, and done criteria where useful
-- write for execution, not just inspiration
-
-### Structure
-- follow the existing naming pattern
-- keep one clear responsibility per file
-- use predictable headings and stable terminology
-
-### JSON and machine-readable files
-- keep shapes consistent with schemas
-- update tests when validation expectations change
-- avoid speculative config keys without usage intent
-
-## Required Updates When Relevant
-
-If your change affects behavior, you may also need to update:
-
-- documentation templates
-- orchestration docs
-- manifests
-- schemas
-- tests
-- examples
-
-## Pull Request Guidance
-
-A strong change submission should explain:
-
+## Pull Request Expectations
+A good change should explain:
 - what changed
-- why it changed
-- which layer(s) it affects
-- whether it is engine-neutral or engine-specific
-- whether tests, schemas, or manifests were updated
-- whether install-profile behavior changed
+- why it is needed
+- which repository layer it affects
+- whether it is common or engine-specific
+- whether any harness adapters need to be updated
 
-## Things to Avoid
-
-- adding engine-specific detail to common docs
-- changing names or folder structure casually
-- adding commands or agents without routing rationale
-- adding skills that duplicate other skills
-- adding docs that look polished but are not operationally useful
-- weakening validation or tests without clear justification
-
-## Final Rule
-
-Contribute in ways that make the scaffold more usable for real game teams, not just more impressive on paper.
+## Review Criteria
+Changes should be reviewed for:
+- structural alignment
+- clarity and completeness
+- cross-engine contamination risk
+- maintainability
+- compatibility with existing commands, agents, and skills

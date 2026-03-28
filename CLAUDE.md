@@ -1,91 +1,60 @@
 # CLAUDE.md
 
-This repository is designed to support role-based, rule-grounded AI-assisted game development.
+This repository is a scaffold for structured AI-assisted game development.
 
-## Operating Summary
-
-When working in this repository:
-
-- use the scaffold layers intentionally
-- keep engine-specific guidance isolated
-- prefer structured deliverables over freeform advice
-- respect the command → agent → skill → template flow
-- update documentation when decisions change
-
-## Preferred Working Order
-
-For most non-trivial requests, the recommended progression is:
-
-1. identify the command or workflow entry point
-2. identify the owning agent or role
-3. pull in the relevant rules
-4. execute with the relevant skills
-5. produce a template-backed deliverable when appropriate
-6. identify the next validation or handoff step
-
-## Engine Separation
-
-Never blend Unity, Unreal, and Godot implementation patterns inside shared common outputs.
-
-Use:
-
-- `rules/common/` for shared policy
-- `rules/unity/` for Unity-specific execution
-- `rules/unreal/` for Unreal-specific execution
-- `rules/godot/` for Godot-specific execution
-
-The same separation principle should be applied to skills, examples, and install profiles.
-
-## Expected Deliverables
-
-Common deliverable types include:
-
-- Game Design Documents
-- Technical Design Documents
-- Vertical Slice Plans
-- Milestone Plans
-- QA Test Plans
-- Telemetry Plans
-- Release Checklists
-- Patch Notes
-- Review outputs and audit summaries
-
-## Routing Guidance
-
-If a request is ambiguous, first determine whether it is primarily:
-
-- planning
+## Repository Identity
+This is not a single-engine template and not only a prompt collection.
+It is a layered workflow system for:
 - design
-- engineering
+- technical design
+- gameplay implementation
 - QA
 - release
-- liveops
-- engine setup or review
+- live ops
+- harness portability
 
-Then route it through the corresponding command and agent.
+## Primary Intent
+Use this repository to coordinate work across shared game-development standards while preserving strict isolation between Unity, Unreal, and Godot execution layers.
 
-## Documentation Policy
+## How To Read The Repository
+- Start with `README.md` for repository purpose.
+- Use `AGENTS.md` for role behavior.
+- Use `rules/common/` for shared policy
+- Use `rules/unity/` for Unity-specific execution
+- Use `rules/unreal/` for Unreal-specific execution
+- Use `rules/godot/` for Godot-specific execution
+- Use `commands/` as the preferred task entry points.
+- Use `skills/` for execution depth.
+- Use `contexts/` to adapt to project phase.
+- Use `hooks/` to enforce workflow safety.
 
-When a decision affects behavior, architecture, quality gates, telemetry, or release expectations, the relevant source-of-truth document should be updated or flagged for update.
+## Claude-Specific Guidance
+When working in this repository:
+- prefer structured outputs over free-form improvisation
+- keep engine-specific advice isolated
+- update source-of-truth docs when decisions change
+- use planner-first behavior for non-trivial work
+- route review work to the correct specialized role
+- preserve the scaffold’s naming and folder conventions
 
-## Quality Bar
+## Decision Rules
+When uncertain:
+- prefer the common layer for standards
+- prefer the engine layer for implementation detail
+- prefer a command if one exists
+- prefer a reusable skill over one-off instructions
+- prefer explicit documentation over hidden reasoning
 
-Outputs should be:
+## What To Avoid
+- creating duplicate sources of truth
+- silently inventing new repository structure without justification
+- mixing Unity, Unreal, and Godot implementation guidance
+- replacing structured process with ad hoc chat outputs
 
-- structurally clear
-- specific enough to execute
-- aligned with the active engine and install profile
-- explicit about risks and trade-offs
-- testable and reviewable
-
-## Recommended Files to Check First
-
-- `README.md`
-- `AGENTS.md`
-- `docs/orchestration/`
-- `manifests/install-profiles.json`
-- the relevant engine rules pack
-
-## Guiding Principle
-
-Optimize for reusable, role-aware, production-safe outputs rather than one-off answers.
+## Repository Maintenance Rule
+Any new scaffold block should align with the existing conventions:
+- flat `agents/`
+- flat `commands/`
+- grouped `skills/` with `SKILL.md`
+- layered `rules/`
+- harness adapters that point back to shared repository logic

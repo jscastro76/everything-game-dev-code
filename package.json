@@ -2,10 +2,16 @@
   "name": "everything-game-dev-code",
   "version": "0.1.0",
   "private": true,
-  "description": "Scaffold of agents, skills, and rules for game development",
+  "description": "A universal AI-assisted scaffold for game development across Unity, Unreal, and Godot.",
+  "license": "MIT",
   "scripts": {
     "test": "node tests/run-all.js",
-    "validate:schemas": "echo TODO",
-    "validate:manifests": "echo TODO"
+    "validate:manifests": "echo manifests validation hook goes here",
+    "validate:hooks": "echo hooks validation hook goes here",
+    "validate:structure": "echo structure validation hook goes here",
+    "lint:markdown": "echo markdown lint hook goes here"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
