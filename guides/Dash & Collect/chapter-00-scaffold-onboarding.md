@@ -188,31 +188,7 @@ set GAME_DEV_PROFILE=unity
 
 ---
 
-## Step 7 — Install the slash commands
-
-The scaffold commands (`/plan`, `/gdd`, `/tdd`, etc.) only appear in Claude Code's
-autocomplete if they live in `.claude/commands/`. Run this script to install them:
-
-```bash
-node scripts/install-commands.js
-```
-
-Expected output:
-
-```
-✓ Installed 45 commands to .claude/commands/
-  Restart Claude Code to pick up the new slash commands.
-```
-
-After restarting Claude Code, type `/` in the chat and you will see all the scaffold
-commands in the autocomplete list (`/plan`, `/gdd`, `/unity-setup`, `/tdd`, etc.).
-
-> **Note:** If you update the scaffold later (e.g. `git pull`), re-run this script to
-> sync any new or changed commands.
-
----
-
-## Step 8 — Open Claude Code in the scaffold root
+## Step 7 — Open Claude Code in the scaffold root
 
 Open Claude Code from the scaffold root, **not** from inside `game/`:
 
@@ -233,7 +209,7 @@ pwd
 
 ---
 
-## Step 9 — Read the entry point files
+## Step 8 — Read the entry point files
 
 With Claude Code open, read the three files that orient the AI to this project:
 
@@ -245,7 +221,7 @@ These are the first things Claude Code reads when starting a session on this sca
 
 ---
 
-## Step 10 — Understand the rules resolution order
+## Step 9 — Understand the rules resolution order
 
 The scaffold resolves rules in a strict two-layer order for this project. Never mix engines:
 
@@ -281,9 +257,8 @@ Before proceeding to Chapter 1:
 - [ ] Install script ran: `ok: true`, `active_engine: "unity"`
 - [ ] `.game-dev/profile.json` shows `"active_profile": "unity"`
 - [ ] `GAME_DEV_PROFILE=unity` is set in the current shell
-- [ ] `node scripts/install-commands.js` ran — 45 commands installed to `.claude/commands/`
-- [ ] Claude Code restarted — `/plan`, `/gdd`, `/tdd` visible in autocomplete
 - [ ] Claude Code is open from `dash-and-collect/` (not from `game/`)
+- [ ] `/plan`, `/gdd`, `/tdd` visible in Claude Code autocomplete (type `/` to check)
 - [ ] `rules/common/` and `rules/unity/` are both present
 - [ ] Unreal and Godot rules confirmed NOT in the installed profile
 
