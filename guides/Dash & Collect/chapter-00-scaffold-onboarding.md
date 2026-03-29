@@ -23,7 +23,7 @@ Before starting, make sure you have:
 The scaffold is a standalone repository. Clone it to wherever you keep your projects:
 
 ```bash
-git clone https://github.com/your-org/everything-game-dev-code.git dash-and-collect
+git clone https://github.com/MRCalderon3D/everything-game-dev-code.git dash-and-collect
 cd dash-and-collect
 ```
 
@@ -70,7 +70,10 @@ dash-and-collect/                ← Claude Code workspace (scaffold root)
 
 ## Step 3 — Install Node.js dependencies
 
+From the scaffold root (`dash-and-collect/`), where `package.json` lives:
+
 ```bash
+cd dash-and-collect
 npm install
 ```
 
@@ -84,7 +87,7 @@ running any scaffold tooling.
 Open Unity Hub and create a new project:
 
 1. Click **New Project**
-2. Template: **2D (Built-in Render Pipeline)**
+2. Template: **2D (URP)**
 3. Project name: `game`
 4. Location: set to the scaffold root folder (`dash-and-collect/`)
 5. Click **Create project**
@@ -185,7 +188,31 @@ set GAME_DEV_PROFILE=unity
 
 ---
 
-## Step 7 — Open Claude Code in the scaffold root
+## Step 7 — Install the slash commands
+
+The scaffold commands (`/plan`, `/gdd`, `/tdd`, etc.) only appear in Claude Code's
+autocomplete if they live in `.claude/commands/`. Run this script to install them:
+
+```bash
+node scripts/install-commands.js
+```
+
+Expected output:
+
+```
+✓ Installed 45 commands to .claude/commands/
+  Restart Claude Code to pick up the new slash commands.
+```
+
+After restarting Claude Code, type `/` in the chat and you will see all the scaffold
+commands in the autocomplete list (`/plan`, `/gdd`, `/unity-setup`, `/tdd`, etc.).
+
+> **Note:** If you update the scaffold later (e.g. `git pull`), re-run this script to
+> sync any new or changed commands.
+
+---
+
+## Step 8 — Open Claude Code in the scaffold root
 
 Open Claude Code from the scaffold root, **not** from inside `game/`:
 
@@ -206,7 +233,7 @@ pwd
 
 ---
 
-## Step 8 — Read the entry point files
+## Step 9 — Read the entry point files
 
 With Claude Code open, read the three files that orient the AI to this project:
 
@@ -218,7 +245,7 @@ These are the first things Claude Code reads when starting a session on this sca
 
 ---
 
-## Step 9 — Understand the rules resolution order
+## Step 10 — Understand the rules resolution order
 
 The scaffold resolves rules in a strict two-layer order for this project. Never mix engines:
 
@@ -254,22 +281,26 @@ Before proceeding to Chapter 1:
 - [ ] Install script ran: `ok: true`, `active_engine: "unity"`
 - [ ] `.game-dev/profile.json` shows `"active_profile": "unity"`
 - [ ] `GAME_DEV_PROFILE=unity` is set in the current shell
+- [ ] `node scripts/install-commands.js` ran — 45 commands installed to `.claude/commands/`
+- [ ] Claude Code restarted — `/plan`, `/gdd`, `/tdd` visible in autocomplete
 - [ ] Claude Code is open from `dash-and-collect/` (not from `game/`)
 - [ ] `rules/common/` and `rules/unity/` are both present
 - [ ] Unreal and Godot rules confirmed NOT in the installed profile
 
 ---
 
-## Scaffold Features in Action (Behind the Scenes)
+## What just happened (no action required)
 
-- `manifests/` ensures you only activate Unity-relevant agents, skills, and rules — 297
-  files instead of the full repository
-- `schemas/` validates the manifest files every time the install runs — catching broken
-  references before they cause problems later
-- `hooks/engine-profile-guard` will warn on any Write or Edit operation if
-  `GAME_DEV_PROFILE` is not set — protecting engine isolation throughout the project
-- `.game-dev/profile.json` is the runtime source of truth for which engine is active —
-  scripts and hooks read this file, not just the env var
+These things happened automatically when you ran the steps above — no extra commands needed.
+
+- **`manifests/`** filtered the repository to 297 Unity-relevant files. The full repo has
+  more, but Unreal and Godot content is excluded for this project.
+- **`schemas/`** validated the manifest files before the install ran — if a profile entry
+  had a typo, the script would have failed with a clear error instead of silently breaking.
+- **`hooks/engine-profile-guard`** is now active. It will show a warning if you try to
+  edit engine-specific files without `GAME_DEV_PROFILE` set.
+- **`.game-dev/profile.json`** is the file that scripts and hooks read to know the active
+  engine — not just the environment variable, so it works even across shell sessions.
 
 ---
 
@@ -282,7 +313,8 @@ dash-and-collect/
   rules/common/       ← 18 shared rules active
   rules/unity/        ← 23 Unity rules active
   agents/             ← 40 agent definitions available
-  commands/           ← 44 commands available
+  commands/           ← 44 commands available (exposed as slash commands in Claude Code)
+  .claude/commands/   ← 45 slash command wrappers installed
   skills/             ← 78 skills available (6 domains)
   contexts/           ← 9 phase contexts available
   hooks/              ← 10 hooks configured
