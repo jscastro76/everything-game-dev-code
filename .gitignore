@@ -4,6 +4,7 @@ coverage/
 .DS_Store
 
 temp/
+.game-dev/
 
 # Personal configs (if any)
 personal/

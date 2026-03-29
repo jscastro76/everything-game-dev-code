@@ -8,10 +8,14 @@ const schemaDir = path.join(repoRoot, 'schemas');
 const manifestDir = path.join(repoRoot, 'manifests');
 
 const schemaFiles = [
+  'hooks.schema.json',
   'install-components.schema.json',
+  'install-state.schema.json',
   'install-modules.schema.json',
   'install-profiles.schema.json',
-  'hooks.schema.json',
+  'package-manager.schema.json',
+  'plugin.schema.json',
+  'role-matrix.schema.json',
 ];
 
 const manifestFiles = [
@@ -35,6 +39,32 @@ for (const file of manifestFiles) {
   const parsed = JSON.parse(fs.readFileSync(full, 'utf8'));
   assert.strictEqual(typeof parsed, 'object', `Manifest '${file}' must parse to an object.`);
   assert.strictEqual(typeof parsed.version, 'number', `Manifest '${file}' must declare a numeric version.`);
+}
+
+const schemaBackedDocuments = [
+  {
+    file: path.join(repoRoot, '.claude', 'package-manager.json'),
+    expectedSchema: '../schemas/package-manager.schema.json',
+  },
+  {
+    file: path.join(repoRoot, '.claude-plugin', 'plugin.json'),
+    expectedSchema: '../schemas/plugin.schema.json',
+  },
+  {
+    file: path.join(repoRoot, 'mcp-configs', 'mcp-servers.json'),
+    expectedSchema: '../schemas/plugin.schema.json',
+  },
+];
+
+for (const { file, expectedSchema } of schemaBackedDocuments) {
+  assert.ok(fs.existsSync(file), `Missing schema-backed document '${path.relative(repoRoot, file)}'.`);
+  const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
+  assert.strictEqual(typeof parsed, 'object', `${path.relative(repoRoot, file)} must parse to an object.`);
+  assert.strictEqual(
+    parsed.$schema,
+    expectedSchema,
+    `${path.relative(repoRoot, file)} should reference '${expectedSchema}'.`
+  );
 }
 
 console.log('PASS schemas/manifests-schema.test.js');

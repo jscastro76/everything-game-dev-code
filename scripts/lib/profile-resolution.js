@@ -8,9 +8,32 @@ function getWorkspaceRoot() {
   return process.env.WORKSPACE_ROOT || process.cwd();
 }
 
+function readProfileState(filePath) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, "utf8"));
+  } catch {
+    return {};
+  }
+}
+
 function getActiveProfile() {
   const raw = process.env.GAME_DEV_PROFILE || "";
-  return raw.trim().toLowerCase();
+  const explicitProfile = raw.trim().toLowerCase();
+  if (explicitProfile) {
+    return explicitProfile;
+  }
+
+  const workspaceRoot = getWorkspaceRoot();
+  const profileFile = path.join(workspaceRoot, ".game-dev", "profile.json");
+  const profileState = readProfileState(profileFile);
+  const profileFromFile = String(profileState.active_profile || "").trim().toLowerCase();
+  if (profileFromFile) {
+    return profileFromFile;
+  }
+
+  const installStateFile = path.join(workspaceRoot, ".game-dev", "install-state.json");
+  const installState = readProfileState(installStateFile);
+  return String(installState.active_engine || "").trim().toLowerCase();
 }
 
 function detectProfileFromPaths(text) {

@@ -5,6 +5,7 @@ const { spawnSync } = require('child_process');
 const tests = [
   'ci/readme.test.js',
   'hooks/hooks-config.test.js',
+  'integration/install-profile-script.test.js',
   'integration/profile-install.test.js',
   'lib/engine-isolation.test.js',
   'scripts/setup-profile.test.js',

@@ -1,4 +1,5 @@
 {
+  "$schema": "../schemas/plugin.schema.json",
   "name": "everything-game-dev-code",
   "version": "0.1.0",
   "display_name": "Everything Game Dev Code",
@@ -53,10 +54,11 @@
     "manifests": "manifests/"
   },
   "recommended_profiles": [
-    "preproduction-only",
-    "unity-mobile-f2p",
-    "unreal-console-aaa",
+    "preproduction-design-heavy",
+    "unity-production",
+    "unreal-aaa-console",
     "godot-indie-2d",
+    "mobile-f2p-liveops",
     "unity-multiplayer"
   ],
   "installation_notes": [

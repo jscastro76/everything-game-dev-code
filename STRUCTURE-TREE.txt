@@ -3,11 +3,8 @@ everything-game-dev-code
 │   └── skills
 │       └── README.md
 ├── .claude
-│   ├── README.md
 │   ├── commands
 │   │   └── README.md
-│   ├── identity.json
-│   ├── package-manager.json
 │   ├── research
 │   │   └── README.md
 │   ├── rules
@@ -15,41 +12,53 @@ everything-game-dev-code
 │   ├── skills
 │   │   └── everything-game-dev-code
 │   │       └── README.md
-│   └── team
-│       └── README.md
+│   ├── team
+│   │   └── README.md
+│   ├── identity.json
+│   ├── package-manager.json
+│   ├── README.md
+│   └── settings.local.json
 ├── .claude-plugin
 │   ├── marketplace.json
 │   └── plugin.json
 ├── .codex
-│   ├── AGENTS.md
 │   ├── agents
 │   │   └── README.md
+│   ├── AGENTS.md
 │   └── config.toml
 ├── .cursor
 │   ├── hooks
 │   │   └── README.md
-│   ├── hooks.json
 │   ├── rules
+│   │   ├── 00-project-context.mdc
+│   │   ├── 01-engine-isolation.mdc
+│   │   ├── 02-workflow.mdc
+│   │   ├── 03-doc-sync.mdc
 │   │   └── README.md
-│   └── skills
-│       └── README.md
-├── .env.example
-├── .gitignore
+│   ├── skills
+│   │   └── README.md
+│   ├── hooks.json
+│   └── README.md
+├── .github
+│   ├── workflows
+│   │   └── ci.yml
+│   └── copilot-instructions.md
 ├── .kiro
-│   ├── README.md
-│   └── steering
-│       └── README.md
-├── .markdownlint.json
+│   ├── steering
+│   │   ├── product.md
+│   │   ├── README.md
+│   │   ├── structure.md
+│   │   ├── tech.md
+│   │   └── workflow.md
+│   └── README.md
 ├── .opencode
-│   ├── MIGRATION.md
-│   ├── README.md
 │   ├── commands
-│   │   └── README.md
-│   ├── index.ts
+│   │   ├── engine-review.md
+│   │   ├── plan.md
+│   │   ├── README.md
+│   │   └── verify.md
 │   ├── instructions
 │   │   └── README.md
-│   ├── opencode.json
-│   ├── package.json
 │   ├── plugins
 │   │   └── README.md
 │   ├── prompts
@@ -57,18 +66,14 @@ everything-game-dev-code
 │   │       └── README.md
 │   ├── tools
 │   │   └── README.md
+│   ├── index.ts
+│   ├── MIGRATION.md
+│   ├── opencode.json
+│   ├── package.json
+│   ├── README.md
 │   └── tsconfig.json
-├── .prettierrc
-├── AGENTS.md
-├── CHANGELOG.md
-├── CLAUDE.md
-├── CONTRIBUTING.md
-├── LICENSE
-├── README.md
-├── SECURITY.md
-├── STRUCTURE-TREE.txt
-├── TROUBLESHOOTING.md
-├── VERSION
+├── .vscode
+│   └── settings.json
 ├── agents
 │   ├── accessibility-reviewer.md
 │   ├── ai-programmer.md
@@ -163,6 +168,7 @@ everything-game-dev-code
 │   ├── preproduction.md
 │   ├── production.md
 │   ├── qa.md
+│   ├── README.md
 │   ├── release.md
 │   ├── research.md
 │   └── review.md
@@ -173,43 +179,59 @@ everything-game-dev-code
 │   │   ├── engine-isolation.md
 │   │   ├── role-handoffs.md
 │   │   └── workflow-sequences.md
-│   ├── structure-overview.md
-│   └── templates
-│       ├── art-bible.md
-│       ├── audio-bible.md
-│       ├── game-design-document.md
-│       ├── milestone-plan.md
-│       ├── playtest-report.md
-│       ├── qa-test-plan.md
-│       ├── release-checklist.md
-│       ├── technical-design-document.md
-│       ├── telemetry-plan.md
-│       └── vertical-slice-plan.md
+│   ├── templates
+│   │   ├── art-bible.md
+│   │   ├── audio-bible.md
+│   │   ├── game-design-document.md
+│   │   ├── milestone-plan.md
+│   │   ├── playtest-report.md
+│   │   ├── qa-test-plan.md
+│   │   ├── release-checklist.md
+│   │   ├── technical-design-document.md
+│   │   ├── telemetry-plan.md
+│   │   └── vertical-slice-plan.md
+│   └── structure-overview.md
 ├── examples
 │   ├── cross-engine-gdd
-│   │   └── README.md
+│   │   ├── game-design-document.md
+│   │   ├── README.md
+│   │   └── technical-design-handoff.md
 │   ├── godot-2d-platformer
+│   │   ├── docs
+│   │   │   ├── playtest-report.md
+│   │   │   └── qa-test-matrix.md
+│   │   ├── install-profile.example.json
 │   │   └── README.md
 │   ├── unity-action-rpg
+│   │   ├── docs
+│   │   │   ├── telemetry-plan.md
+│   │   │   └── vertical-slice-plan.md
+│   │   ├── install-profile.example.json
 │   │   └── README.md
 │   └── unreal-fps
+│       ├── docs
+│       │   ├── release-checklist.md
+│       │   └── technical-design-snapshot.md
+│       ├── install-profile.example.json
 │       └── README.md
 ├── hooks
-│   ├── README.md
-│   └── hooks.json
-├── install.ps1
-├── install.sh
+│   ├── hooks.json
+│   └── README.md
 ├── manifests
 │   ├── install-components.json
 │   ├── install-modules.json
 │   └── install-profiles.json
 ├── mcp-configs
 │   └── mcp-servers.json
-├── package.json
 ├── plugins
 │   └── README.md
+├── private
+│   ├── plan
+│   │   └── fix-audit-errors.md
+│   ├── audit-report.md
+│   ├── how-to-evolve-this-repository.md
+│   └── template-development-analysis-2026-03-28.md
 ├── rules
-│   ├── README.md
 │   ├── common
 │   │   ├── accessibility.md
 │   │   ├── agents.md
@@ -230,47 +252,86 @@ everything-game-dev-code
 │   │   ├── testing.md
 │   │   └── ui-ux.md
 │   ├── godot
-│   │   ├── README.md
+│   │   ├── agents.md
+│   │   ├── asset-imports.md
 │   │   ├── asset-pipeline.md
+│   │   ├── autoloads-singletons.md
 │   │   ├── build-release.md
 │   │   ├── coding-style.md
 │   │   ├── documentation.md
+│   │   ├── editor-tooling.md
+│   │   ├── export-platforms.md
+│   │   ├── gdscript-csharp.md
 │   │   ├── memory.md
 │   │   ├── networking.md
 │   │   ├── patterns.md
 │   │   ├── performance.md
 │   │   ├── project-structure.md
+│   │   ├── qa.md
+│   │   ├── README.md
+│   │   ├── resources-serialization.md
+│   │   ├── scenes-nodes.md
+│   │   ├── signals-events.md
+│   │   ├── technical-design.md
+│   │   ├── telemetry.md
 │   │   ├── testing.md
 │   │   ├── tooling.md
-│   │   └── ui.md
+│   │   ├── ui-input.md
+│   │   ├── ui.md
+│   │   └── version-control.md
 │   ├── unity
-│   │   ├── README.md
+│   │   ├── addressables-content-delivery.md
+│   │   ├── assembly-definitions.md
 │   │   ├── asset-pipeline.md
 │   │   ├── build-release.md
 │   │   ├── coding-style.md
 │   │   ├── documentation.md
+│   │   ├── editor-tooling.md
 │   │   ├── memory.md
+│   │   ├── networking.md
+│   │   ├── packages-dependencies.md
+│   │   ├── patterns.md
+│   │   ├── performance.md
+│   │   ├── playmode-architecture.md
+│   │   ├── prefabs-scenes.md
+│   │   ├── project-structure.md
+│   │   ├── qa.md
+│   │   ├── README.md
+│   │   ├── serialization-data.md
+│   │   ├── technical-design.md
+│   │   ├── telemetry.md
+│   │   ├── testing.md
+│   │   ├── ui.md
+│   │   └── version-control.md
+│   ├── unreal
+│   │   ├── agents.md
+│   │   ├── asset-management.md
+│   │   ├── asset-pipeline.md
+│   │   ├── blueprints.md
+│   │   ├── build-release.md
+│   │   ├── coding-style.md
+│   │   ├── config-settings.md
+│   │   ├── cooking-packaging.md
+│   │   ├── documentation.md
+│   │   ├── editor-tooling.md
+│   │   ├── memory.md
+│   │   ├── modules-plugins.md
+│   │   ├── networking-replication.md
 │   │   ├── networking.md
 │   │   ├── patterns.md
 │   │   ├── performance.md
 │   │   ├── project-structure.md
+│   │   ├── qa.md
+│   │   ├── README.md
+│   │   ├── rendering.md
+│   │   ├── technical-design.md
+│   │   ├── telemetry.md
 │   │   ├── testing.md
 │   │   ├── tooling.md
-│   │   └── ui.md
-│   └── unreal
-│       ├── README.md
-│       ├── asset-pipeline.md
-│       ├── build-release.md
-│       ├── coding-style.md
-│       ├── documentation.md
-│       ├── memory.md
-│       ├── networking.md
-│       ├── patterns.md
-│       ├── performance.md
-│       ├── project-structure.md
-│       ├── testing.md
-│       ├── tooling.md
-│       └── ui.md
+│   │   ├── ui.md
+│   │   ├── uobject-architecture.md
+│   │   └── version-control.md
+│   └── README.md
 ├── schemas
 │   ├── hooks.schema.json
 │   ├── install-components.schema.json
@@ -294,11 +355,20 @@ everything-game-dev-code
 │   │   └── session-summary.js
 │   ├── lib
 │   │   ├── profile-resolution.js
-│   │   └── utils.js
-│   └── setup-profile.js
+│   │   ├── structure-artifacts.js
+│   │   ├── utils.js
+│   │   └── validation.js
+│   ├── install-profile.js
+│   ├── lint-markdown.js
+│   ├── setup-profile.js
+│   ├── sync-structure-artifacts.js
+│   ├── validate-hooks.js
+│   ├── validate-manifests.js
+│   ├── validate-references.js
+│   ├── validate-structure-artifacts.js
+│   └── validate-structure.js
 ├── skills
 │   ├── art-audio-content
-│   │   ├── README.md
 │   │   ├── art-bible
 │   │   │   └── SKILL.md
 │   │   ├── audio-implementation
@@ -311,10 +381,10 @@ everything-game-dev-code
 │   │   │   └── SKILL.md
 │   │   ├── technical-art-pipeline
 │   │   │   └── SKILL.md
-│   │   └── vfx-pipeline
-│   │       └── SKILL.md
+│   │   ├── vfx-pipeline
+│   │   │   └── SKILL.md
+│   │   └── README.md
 │   ├── design
-│   │   ├── README.md
 │   │   ├── accessibility-design
 │   │   │   └── SKILL.md
 │   │   ├── combat-design
@@ -335,10 +405,10 @@ everything-game-dev-code
 │   │   │   └── SKILL.md
 │   │   ├── progression-design
 │   │   │   └── SKILL.md
-│   │   └── quest-design
-│   │       └── SKILL.md
+│   │   ├── quest-design
+│   │   │   └── SKILL.md
+│   │   └── README.md
 │   ├── engineering-common
-│   │   ├── README.md
 │   │   ├── ai-behavior-patterns
 │   │   │   └── SKILL.md
 │   │   ├── animation-state-patterns
@@ -367,10 +437,10 @@ everything-game-dev-code
 │   │   │   └── SKILL.md
 │   │   ├── tools-pipeline-patterns
 │   │   │   └── SKILL.md
-│   │   └── ui-hud-patterns
-│   │       └── SKILL.md
+│   │   ├── ui-hud-patterns
+│   │   │   └── SKILL.md
+│   │   └── README.md
 │   ├── godot
-│   │   ├── README.md
 │   │   ├── godot-build-release
 │   │   │   └── SKILL.md
 │   │   ├── godot-csharp-patterns
@@ -389,10 +459,10 @@ everything-game-dev-code
 │   │   │   └── SKILL.md
 │   │   ├── godot-signals-patterns
 │   │   │   └── SKILL.md
-│   │   └── godot-testing
-│   │       └── SKILL.md
+│   │   ├── godot-testing
+│   │   │   └── SKILL.md
+│   │   └── README.md
 │   ├── qa-release
-│   │   ├── README.md
 │   │   ├── bug-triage
 │   │   │   └── SKILL.md
 │   │   ├── compliance-checklists
@@ -405,10 +475,10 @@ everything-game-dev-code
 │   │   │   └── SKILL.md
 │   │   ├── release-readiness
 │   │   │   └── SKILL.md
-│   │   └── store-submission
-│   │       └── SKILL.md
+│   │   ├── store-submission
+│   │   │   └── SKILL.md
+│   │   └── README.md
 │   ├── unity
-│   │   ├── README.md
 │   │   ├── unity-addressables
 │   │   │   └── SKILL.md
 │   │   ├── unity-build-release
@@ -427,10 +497,10 @@ everything-game-dev-code
 │   │   │   └── SKILL.md
 │   │   ├── unity-testing
 │   │   │   └── SKILL.md
-│   │   └── unity-urp-hdrp
-│   │       └── SKILL.md
+│   │   ├── unity-urp-hdrp
+│   │   │   └── SKILL.md
+│   │   └── README.md
 │   ├── unreal
-│   │   ├── README.md
 │   │   ├── unreal-blueprint-patterns
 │   │   │   └── SKILL.md
 │   │   ├── unreal-build-release
@@ -449,10 +519,10 @@ everything-game-dev-code
 │   │   │   └── SKILL.md
 │   │   ├── unreal-replication
 │   │   │   └── SKILL.md
-│   │   └── unreal-testing
-│   │       └── SKILL.md
+│   │   ├── unreal-testing
+│   │   │   └── SKILL.md
+│   │   └── README.md
 │   └── workflow
-│       ├── README.md
 │       ├── continuous-learning
 │       │   └── SKILL.md
 │       ├── gdd-writing
@@ -471,19 +541,40 @@ everything-game-dev-code
 │       │   └── SKILL.md
 │       ├── verification-loop
 │       │   └── SKILL.md
-│       └── vertical-slice-planning
-│           └── SKILL.md
-└── tests
-    ├── ci
-    │   └── readme.test.js
-    ├── hooks
-    │   └── hooks-config.test.js
-    ├── integration
-    │   └── profile-install.test.js
-    ├── lib
-    │   └── engine-isolation.test.js
-    ├── run-all.js
-    ├── schemas
-    │   └── manifests-schema.test.js
-    └── scripts
-        └── setup-profile.test.js
+│       ├── vertical-slice-planning
+│       │   └── SKILL.md
+│       └── README.md
+├── tests
+│   ├── ci
+│   │   └── readme.test.js
+│   ├── hooks
+│   │   └── hooks-config.test.js
+│   ├── integration
+│   │   ├── install-profile-script.test.js
+│   │   └── profile-install.test.js
+│   ├── lib
+│   │   └── engine-isolation.test.js
+│   ├── schemas
+│   │   └── manifests-schema.test.js
+│   ├── scripts
+│   │   └── setup-profile.test.js
+│   └── run-all.js
+├── .env.example
+├── .gitignore
+├── .markdownlint.json
+├── .prettierrc
+├── AGENTS.md
+├── AGENTS.override.md
+├── CHANGELOG.md
+├── CLAUDE.local.md
+├── CLAUDE.md
+├── CONTRIBUTING.md
+├── install.ps1
+├── install.sh
+├── LICENSE
+├── package.json
+├── README.md
+├── SECURITY.md
+├── STRUCTURE-TREE.txt
+├── TROUBLESHOOTING.md
+└── VERSION

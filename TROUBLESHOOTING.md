@@ -75,7 +75,7 @@ The profile definitions in `manifests/` do not match your studio or project shap
 
 ### Fix
 - add or refine profiles for your project types
-- separate preproduction-only, production, multiplayer, liveops, or mobile-F2P workflows when needed
+- separate preproduction, production, multiplayer, liveops, or mobile-F2P workflows when needed
 - keep engine isolation strict while adjusting capabilities
 
 ## 6. Tests fail after changing manifests or schemas

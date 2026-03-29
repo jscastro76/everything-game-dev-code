@@ -1,4 +1,5 @@
 {
+  "$schema": "../schemas/package-manager.schema.json",
   "name": "everything-game-dev-code",
   "adapter": "claude",
   "mapping": {
