@@ -7,16 +7,19 @@ on:
       - master
   pull_request:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   validate:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 18
 
@@ -35,8 +38,26 @@ jobs:
       - name: Validate references
         run: npm run validate:references
 
+      - name: Regenerate structure artifacts
+        run: npm run sync:structure
+
+      - name: Check committed structure artifacts
+        shell: bash
+        run: |
+          if ! git diff --exit-code -- STRUCTURE-TREE.txt docs/structure-overview.md; then
+            echo "::error::Structure artifacts are out of date. Run 'npm run sync:structure' and commit the updated files."
+            exit 1
+          fi
+
       - name: Validate structure artifacts
         run: npm run validate:structure-artifacts
+
+      - name: Show structure artifact diff on failure
+        if: failure()
+        shell: bash
+        run: |
+          echo "Changed structure artifact files:"
+          git diff -- STRUCTURE-TREE.txt docs/structure-overview.md || true
 
       - name: Lint Markdown
         run: npm run lint:markdown
