@@ -46,6 +46,19 @@ Check:
 - whether docs and hooks need updates too
 - whether tests or validation should change
 
+## Local Git Hooks
+This repository can keep structure artifacts synchronized before each commit.
+
+Run:
+- `npm run setup:hooks`
+
+That command configures Git to use the versioned hooks in `.githooks/`.
+
+The current pre-commit hook will:
+- run `npm run sync:structure`
+- run `npm run validate:structure-artifacts`
+- stage `STRUCTURE-TREE.txt` and `docs/structure-overview.md` automatically if they changed
+
 ## Pull Request Expectations
 A good change should explain:
 - what changed

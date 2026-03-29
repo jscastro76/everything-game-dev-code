@@ -39,6 +39,8 @@ everything-game-dev-code
 │   │   └── README.md
 │   ├── hooks.json
 │   └── README.md
+├── .githooks
+│   └── pre-commit
 ├── .github
 │   ├── workflows
 │   │   └── ci.yml
@@ -360,6 +362,7 @@ everything-game-dev-code
 │   │   └── validation.js
 │   ├── install-profile.js
 │   ├── lint-markdown.js
+│   ├── setup-git-hooks.js
 │   ├── setup-profile.js
 │   ├── sync-structure-artifacts.js
 │   ├── validate-hooks.js

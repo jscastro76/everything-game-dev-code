@@ -5,6 +5,7 @@
   "description": "A universal AI-assisted scaffold for game development across Unity, Unreal, and Godot.",
   "license": "MIT",
   "scripts": {
+    "setup:hooks": "node scripts/setup-git-hooks.js",
     "test": "node tests/run-all.js",
     "validate": "npm run validate:manifests && npm run validate:hooks && npm run validate:structure && npm run validate:references && npm run validate:structure-artifacts && npm run lint:markdown",
     "sync:structure": "node scripts/sync-structure-artifacts.js",

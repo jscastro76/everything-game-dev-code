@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+set -eu
+
+echo "[pre-commit] Syncing structure artifacts..."
+npm run sync:structure
+
+echo "[pre-commit] Validating structure artifacts..."
+npm run validate:structure-artifacts
+
+git add STRUCTURE-TREE.txt docs/structure-overview.md
