@@ -2,7 +2,7 @@
 name: performance-reviewer
 description: Reviews CPU, GPU, memory, loading, and budget risk across systems and content.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # performance-reviewer

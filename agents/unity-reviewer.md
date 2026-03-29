@@ -2,7 +2,7 @@
 name: unity-reviewer
 description: Reviews Unity architecture, project structure, engine integration, and Unity-specific risks.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # unity-reviewer

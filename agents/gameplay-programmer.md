@@ -2,7 +2,7 @@
 name: gameplay-programmer
 description: Implements gameplay loops, interaction systems, and mechanics.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # gameplay-programmer

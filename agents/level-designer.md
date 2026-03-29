@@ -2,7 +2,7 @@
 name: level-designer
 description: Designs level flow, pacing, encounter beats, navigation, and space usage.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # level-designer

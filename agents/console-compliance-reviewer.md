@@ -2,7 +2,7 @@
 name: console-compliance-reviewer
 description: Reviews console/platform compliance, certification risk, and release checklist coverage.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # console-compliance-reviewer

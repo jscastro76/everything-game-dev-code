@@ -2,7 +2,7 @@
 name: accessibility-reviewer
 description: Reviews accessibility, rebindings, contrast, readability, and inclusive UX coverage.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # accessibility-reviewer

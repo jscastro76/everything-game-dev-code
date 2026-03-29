@@ -2,7 +2,7 @@
 name: narrative-designer
 description: Designs narrative arcs, dialogue, quest framing, and worldbuilding.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # narrative-designer

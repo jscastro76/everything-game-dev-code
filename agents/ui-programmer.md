@@ -2,7 +2,7 @@
 name: ui-programmer
 description: Implements HUD, menus, settings, and UI interaction flows.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # ui-programmer

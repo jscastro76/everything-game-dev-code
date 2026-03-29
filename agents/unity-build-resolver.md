@@ -2,7 +2,7 @@
 name: unity-build-resolver
 description: Resolves Unity editor, package, and platform build failures.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # unity-build-resolver

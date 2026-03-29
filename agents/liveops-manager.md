@@ -2,7 +2,7 @@
 name: liveops-manager
 description: Owns live events, offers, telemetry-informed updates, and post-launch operational planning.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # liveops-manager

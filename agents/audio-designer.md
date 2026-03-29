@@ -2,7 +2,7 @@
 name: audio-designer
 description: Designs reactive audio, music, SFX, and functional mix behavior.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # audio-designer

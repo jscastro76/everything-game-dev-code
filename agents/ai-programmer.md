@@ -2,7 +2,7 @@
 name: ai-programmer
 description: Implements NPC behavior, navigation, decision systems, and AI support tooling.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # ai-programmer

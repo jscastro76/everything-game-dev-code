@@ -2,7 +2,7 @@
 name: security-reviewer
 description: Reviews secrets handling, external services, data trust boundaries, and abuse risks.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # security-reviewer

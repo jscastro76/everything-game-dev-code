@@ -2,7 +2,7 @@
 name: code-reviewer
 description: Reviews code quality, architecture fit, maintainability, and technical risk.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # code-reviewer

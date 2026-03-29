@@ -2,7 +2,7 @@
 name: systems-designer
 description: Designs systems, progression, economy relationships, and player goals.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # systems-designer

@@ -2,7 +2,7 @@
 name: gdd-designer
 description: Creates and maintains the Game Design Document and player-facing intent.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # gdd-designer

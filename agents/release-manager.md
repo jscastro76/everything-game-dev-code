@@ -2,7 +2,7 @@
 name: release-manager
 description: Owns go/no-go framing, release checklists, and coordination of final release readiness.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # release-manager

@@ -2,7 +2,7 @@
 name: godot-build-resolver
 description: Resolves Godot export, project configuration, and script/runtime build blockers.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # godot-build-resolver

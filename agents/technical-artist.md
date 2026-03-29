@@ -2,7 +2,7 @@
 name: technical-artist
 description: Owns art pipeline quality, shaders, import settings, and runtime visual performance.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # technical-artist

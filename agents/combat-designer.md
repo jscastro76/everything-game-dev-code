@@ -2,7 +2,7 @@
 name: combat-designer
 description: Designs combat rules, abilities, weapons, states, and initial balance targets.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # combat-designer

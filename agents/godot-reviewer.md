@@ -2,7 +2,7 @@
 name: godot-reviewer
 description: Reviews Godot architecture, scene structure, resource usage, and engine-specific risks.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # godot-reviewer

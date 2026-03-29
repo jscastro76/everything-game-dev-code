@@ -2,7 +2,7 @@
 name: network-programmer
 description: Implements authority, replication, synchronization, and networked gameplay safety.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # network-programmer

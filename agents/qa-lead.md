@@ -2,7 +2,7 @@
 name: qa-lead
 description: Owns QA strategy, coverage planning, regression scope, and release confidence signals.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # qa-lead

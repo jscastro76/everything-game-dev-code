@@ -2,7 +2,7 @@
 name: producer
 description: Owns roadmap pressure, milestone health, delivery risks, and coordination.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # producer

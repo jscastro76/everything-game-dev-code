@@ -2,7 +2,7 @@
 name: mobile-f2p-analyst
 description: Reviews mobile F2P retention, monetization, economy pressure, and live-ops implications.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # mobile-f2p-analyst

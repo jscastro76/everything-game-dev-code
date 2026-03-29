@@ -2,7 +2,7 @@
 name: telemetry-analyst
 description: Designs instrumentation goals, event quality expectations, and behavior analysis loops.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # telemetry-analyst

@@ -2,7 +2,7 @@
 name: tools-programmer
 description: Builds internal tools, editor workflows, validators, and production automation.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # tools-programmer

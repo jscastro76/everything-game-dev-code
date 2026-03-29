@@ -2,7 +2,7 @@
 name: economy-designer
 description: Designs currencies, sinks, rewards, tuning logic, and economy health.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # economy-designer

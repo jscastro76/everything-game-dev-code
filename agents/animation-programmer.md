@@ -2,7 +2,7 @@
 name: animation-programmer
 description: Implements animation state logic, blending, sync, and event-driven hooks.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # animation-programmer

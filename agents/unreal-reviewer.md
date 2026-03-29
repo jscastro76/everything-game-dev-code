@@ -2,7 +2,7 @@
 name: unreal-reviewer
 description: Reviews Unreal architecture, content boundaries, engine integration, and Unreal-specific risks.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # unreal-reviewer

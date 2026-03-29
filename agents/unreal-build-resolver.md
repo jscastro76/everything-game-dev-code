@@ -2,7 +2,7 @@
 name: unreal-build-resolver
 description: Resolves Unreal compilation, packaging, module, and plugin failures.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # unreal-build-resolver

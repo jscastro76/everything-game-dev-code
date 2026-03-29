@@ -2,7 +2,7 @@
 name: refactor-cleaner
 description: Reduces technical debt, simplifies architecture, and improves maintainability.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # refactor-cleaner

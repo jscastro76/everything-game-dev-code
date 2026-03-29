@@ -2,7 +2,7 @@
 name: playtest-analyst
 description: Synthesizes playtest observations, findings, and priority recommendations.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # playtest-analyst

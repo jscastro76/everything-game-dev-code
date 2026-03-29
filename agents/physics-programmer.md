@@ -2,7 +2,7 @@
 name: physics-programmer
 description: Implements movement, collisions, simulation behavior, and game feel through physics.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # physics-programmer

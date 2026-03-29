@@ -2,7 +2,7 @@
 name: ui-ux-designer
 description: Designs HUD, menus, onboarding, interaction flow, and player-facing clarity.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # ui-ux-designer

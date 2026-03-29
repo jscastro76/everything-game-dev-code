@@ -2,7 +2,7 @@
 name: doc-updater
 description: Keeps GDD, TDD, runbooks, and operational docs aligned with reality.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: haiku
 ---
 
 # doc-updater

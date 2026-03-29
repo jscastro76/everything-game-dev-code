@@ -2,7 +2,7 @@
 name: build-engineer
 description: Owns build automation, CI reliability, packaging, and artifact discipline.
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: sonnet
 ---
 
 # build-engineer
