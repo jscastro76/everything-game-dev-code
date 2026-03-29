@@ -62,6 +62,15 @@ The `engine-profile-guard` hook fires first to confirm `GAME_DEV_PROFILE=unity` 
 The `unity-reviewer` and `architect` agents then use `skills/unity/unity-project-structure`
 and apply `rules/unity/project-structure.md` and `rules/unity/assembly-definitions.md`.
 
+> **After running `/unity-setup`, Claude may give you a list of manual actions to complete
+> before continuing:**
+> - **In-editor moves and renames** — file moves that must be done inside the Unity Editor
+>   (not via file explorer or terminal) to keep GUIDs intact.
+> - **Package removals** — packages flagged as out of scope that should be removed via
+>   Window → Package Manager, or by editing `Packages/manifest.json` directly.
+>
+> Complete all of these before moving to the next step.
+
 **Resulting Unity project folder structure:**
 
 ```
@@ -95,7 +104,7 @@ per `rules/unity/assembly-definitions.md`.
 ### 3. Write the Technical Design Document — /tech-design
 
 ```
-/tech-design
+/tech-design Write the Technical Design Document for "Dash & Collect" — a 2D endless runner in Unity. Systems: GameManager, PlayerController, SpawnManager, CollisionHandler, ScoreManager.
 ```
 
 The `technical-design-lead` and `architect` agents use `skills/workflow/technical-design-document`
@@ -145,7 +154,7 @@ and `skills/engineering-common/gameplay-architecture`. Output follows
 ### 4. Define the vertical slice — /vertical-slice
 
 ```
-/vertical-slice
+/vertical-slice Define the vertical slice for "Dash & Collect" — a 2D endless runner in Unity. Core proof points: player auto-run, jump mechanic, one obstacle type, one coin type, speed ramp, game over and instant retry.
 ```
 
 The `planner`, `producer`, and `gdd-designer` agents use `skills/workflow/vertical-slice-planning`.
@@ -172,8 +181,11 @@ SUCCESS CRITERIA:
 ### 5. Set performance and memory budgets
 
 ```
-/perf-budget
-/memory-budget
+/perf-budget Define performance budgets for "Dash & Collect" — target platforms: PC (primary, 60fps) and Android (secondary, 30fps minimum).
+```
+
+```
+/memory-budget Define memory budgets for "Dash & Collect" — target platforms: PC (≤1GB) and Android (≤512MB). Zero GC alloc on the hot path.
 ```
 
 The `performance-reviewer` uses `skills/engineering-common/performance-budgeting` and
@@ -207,7 +219,7 @@ GC alloc per frame: ≤ 0 (zero-alloc hot path)
 ### 6. Plan milestones — /milestone-plan
 
 ```
-/milestone-plan
+/milestone-plan Create the milestone plan for "Dash & Collect" covering chapters 0–9: scaffold setup, concept, vertical slice, core systems, full feature, code review, performance, QA, release, and live ops.
 ```
 
 **Milestones:**
