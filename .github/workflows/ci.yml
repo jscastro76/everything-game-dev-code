@@ -38,17 +38,6 @@ jobs:
       - name: Validate references
         run: npm run validate:references
 
-      - name: Regenerate structure artifacts
-        run: npm run sync:structure
-
-      - name: Check committed structure artifacts
-        shell: bash
-        run: |
-          if ! git diff --exit-code -- STRUCTURE-TREE.txt docs/structure-overview.md; then
-            echo "::error::Structure artifacts are out of date. Run 'npm run sync:structure' and commit the updated files."
-            exit 1
-          fi
-
       - name: Validate structure artifacts
         run: npm run validate:structure-artifacts
 
@@ -56,6 +45,7 @@ jobs:
         if: failure()
         shell: bash
         run: |
+          npm run sync:structure
           echo "Changed structure artifact files:"
           git diff -- STRUCTURE-TREE.txt docs/structure-overview.md || true
 
