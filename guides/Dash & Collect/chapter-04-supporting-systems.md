@@ -381,6 +381,18 @@ After all supporting systems pass tests:
 
 This is **Milestone M4**.
 
+Before moving to the next chapter, ask Claude to validate the milestone plan against what has been built:
+
+```
+Read the milestone plan (design/MILESTONE-PLAN.md or similar) and compare it against what we have implemented in this session. List any gaps — features, tests, or criteria that are not yet met.
+```
+
+If Claude reports gaps, address them before continuing. For each gap:
+- Use `/tdd [description]` for missing code or tests.
+- Items that require manual work in Unity (prefabs, scene wiring) must be done in the editor — Claude will tell you which ones.
+
+Do not proceed to Chapter 5 until all M4 criteria are met.
+
 ---
 
 ## Scaffold Features in Action (Behind the Scenes)
