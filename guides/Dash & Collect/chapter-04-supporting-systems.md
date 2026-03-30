@@ -85,7 +85,7 @@ all objects are placed, and the game runs in Play mode before continuing.
 ### Implement with TDD
 
 ```
-/tdd UI — MainMenuController, HUDController, GameOverController
+/tdd Implement UI for "Dash & Collect": MainMenuController (Play button → GameManager.StartGame, high score display), HUDController (score label, coin counter, high score label — all event-driven), GameOverController (final score, Retry button → GameManager.RestartGame, Main Menu button → SceneLoader.LoadMainMenu).
 ```
 
 The `ui-programmer` uses `skills/engineering-common/ui-hud-patterns` and applies
@@ -152,7 +152,7 @@ passes basic accessibility checks.
 ### Implement with TDD
 
 ```
-/tdd InputHandler
+/tdd Implement InputHandler for "Dash & Collect": IInputProvider interface with JumpPressed property, UnityInputProvider (Space key, left mouse click, touch), TestInputProvider for test doubles. PlayerController must receive IInputProvider via constructor injection.
 ```
 
 The `gameplay-programmer` uses `skills/engineering-common/input-abstraction` and
@@ -208,7 +208,7 @@ public void PlayerController_Jumps_WhenInputProviderReportsJump()
 Before implementation, create a minimal Audio Bible from the template:
 
 ```
-docs/templates/audio-bible.md → project/docs/audio-bible.md
+/plan Create a minimal Audio Bible for "Dash & Collect" using docs/templates/audio-bible.md. Save the output to project/docs/audio-bible.md. Sound events: jump (quick whoosh), coin_collect (bright ding), death (impact crunch), background music (lo-fi chiptune loop).
 ```
 
 **Audio Bible excerpt:**
@@ -234,7 +234,7 @@ Max size music: 2MB
 ### Implement audio integration
 
 ```
-/audio-pass
+/audio-pass Review and implement audio integration for "Dash & Collect": AudioManager singleton (DontDestroyOnLoad), PlayOneShot for all SFX (jump, coin, death), looping music source. Verify all 4 events trigger correctly and audio stubs are wired in the scene.
 ```
 
 The `asset-size-warning` hook fires when audio assets are imported. Verify all SFX are
@@ -264,7 +264,7 @@ public void StopMusic()  => musicSource.Stop();
 ### Implement with TDD
 
 ```
-/tdd SaveSystem
+/tdd Implement SaveSystem for "Dash & Collect" using PlayerPrefs: SaveHighScore(int), LoadHighScore() → int, ClearAll(). Also IsOnboardingComplete() → bool and CompleteOnboarding(). All keys must be constants. No sensitive data stored.
 ```
 
 The `gameplay-programmer` uses `skills/engineering-common/save-system-patterns` and applies
@@ -328,7 +328,7 @@ public void SaveSystem_Load_AfterClear_ReturnsDefault()
 ### Validate with /save-system-review
 
 ```
-/save-system-review
+/save-system-review Review the SaveSystem for "Dash & Collect": PlayerPrefs-based, stores high_score (int) and onboarding_complete (int). Verify no injection risk, corrupt/missing data defaults gracefully, no sensitive data persisted.
 ```
 
 The `security-reviewer` agent applies `rules/common/security.md` to check:
