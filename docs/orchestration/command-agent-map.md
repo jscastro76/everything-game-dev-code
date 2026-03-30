@@ -268,6 +268,18 @@ Support:
 - `technical-artist`
 - `qa-lead`
 
+### /unity-placeholders
+Primary: `unity-reviewer`
+Support:
+- `technical-artist`
+- `build-engineer`
+
+### /scene-bootstrap
+Primary: `unity-reviewer`
+Support:
+- `architect`
+- `gameplay-programmer`
+
 ### /unreal-setup
 Primary: `unreal-reviewer`
 Support:

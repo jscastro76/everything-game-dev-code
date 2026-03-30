@@ -13,6 +13,8 @@
 
 | Feature | Specific Item | Purpose |
 |---------|--------------|---------|
+| `commands/` | `/unity-placeholders` | Generate placeholder sprites, prefabs, and audio stubs |
+| `commands/` | `/scene-bootstrap` | Populate the game scene and wire all inspector references |
 | `commands/` | `/tdd` | Test-driven implementation per system |
 | `commands/` | `/audio-pass` | Audio integration review |
 | `commands/` | `/save-system-review` | Validate save/load correctness |
@@ -34,6 +36,47 @@
 | `hooks/` | `scene-integrity-check` | Fires when editing Unity scene files |
 | `hooks/` | `prefab-blueprint-node-warning` | Fires when editing prefab files |
 | `hooks/` | `asset-size-warning` | Fires when adding audio/texture assets |
+
+---
+
+## Step 0: Create visual placeholders
+
+Before building any supporting systems, generate placeholder assets so the core systems from
+Chapter 3 are visually testable in the Unity Editor. These placeholders will be replaced by
+final assets later — they exist only to make the game runnable and observable.
+
+First, generate the placeholder assets:
+
+```
+/unity-placeholders Create placeholder assets for "Dash & Collect":
+- Player: white rectangle sprite (1x2 units) → Prefabs/Player/Player.prefab
+- Obstacle: red rectangle sprite (1x2 units) → Prefabs/Obstacles/Obstacle.prefab
+- Coin: yellow circle sprite (0.5x0.5 units) → Prefabs/Collectibles/Coin.prefab
+- Ground: grey rectangle sprite (20x1 units) → Prefabs/Environment/Ground.prefab
+- Background: dark blue rectangle sprite (20x12 units) → Prefabs/Environment/Background.prefab
+- Audio stubs: silent AudioClip assets for Jump, Collect, GameOver, BGM in Audio/SFX/ and Audio/Music/
+```
+
+Run the generated script in Unity via **Tools → Generate Placeholders**. Verify all prefabs
+appear in the Project window, then delete the script.
+
+Then, populate the scene:
+
+```
+/scene-bootstrap Populate Assets/Scenes/Game.unity for "Dash & Collect":
+- Main Camera: orthographic, size 5, position (0, 0, -10)
+- Background at (0, 0, 10), Ground at (0, -4, 0) with BoxCollider2D
+- Player prefab at (-4, -3, 0)
+- Empty GameObjects with scripts: GameManager, SpawnManager, ScoreManager, AudioManager
+- HUD Canvas (Screen Space — Overlay)
+- Wire: GameManager ← Player, SpawnManager ← Obstacle prefab + Coin prefab, AudioManager ← all audio clips
+```
+
+Run the generated script in Unity via **Tools → Bootstrap Scene**. Verify the scene opens,
+all objects are placed, and the game runs in Play mode before continuing.
+
+> These placeholders are intentionally minimal. Do not spend time on visuals here —
+> the goal is a playable loop you can observe and test, not a polished game.
 
 ---
 
