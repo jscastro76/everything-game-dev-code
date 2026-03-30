@@ -40,13 +40,14 @@
 
 ### 1. Load the production context
 
-In your new Claude Code session, tell Claude to read and apply the production context:
+In your new Claude Code session, tell Claude to read and apply the production context and the milestone plan:
 
 ```
-Read contexts/production.md and apply it to this session.
+Read contexts/production.md and apply it to this session. Also read the milestone plan — it is likely at design/MILESTONE-PLAN.md or a similar path in your project — and use it to validate exit criteria as we complete each system.
 ```
 
 This activates `gameplay-programmer` and `code-reviewer` as the lead agents for this phase.
+Claude will use the milestone plan to track acceptance criteria alongside the chapter steps.
 
 ---
 
