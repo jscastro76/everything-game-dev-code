@@ -33,10 +33,10 @@
 
 ### 1. Load the review context
 
-In your new Claude Code session, tell Claude to read and apply the review context:
+In your new Claude Code session, tell Claude to read and apply the review context and the milestone plan:
 
 ```
-Read contexts/review.md and apply it to this session.
+Read contexts/review.md and apply it to this session. Also read the milestone plan — it is likely at design/MILESTONE-PLAN.md or a similar path in your project — and use it to validate exit criteria as we complete each review step.
 ```
 
 This activates `unity-reviewer`, `code-reviewer`, `refactor-cleaner`, and `doc-updater`.
@@ -49,7 +49,7 @@ to each other in this phase.
 ### 2. Run the full project review — /unity-review
 
 ```
-/unity-review
+/unity-review Review "Dash & Collect" — a 2D endless runner in Unity. Systems: GameManager, PlayerController, SpawnManager, CollisionHandler, ScoreManager, AudioManager, SaveSystem, InputHandler, UI controllers. Check architecture, event subscriptions, GC allocations, serialization, and prefab hygiene.
 ```
 
 The `unity-reviewer` agent uses `skills/unity/unity-project-structure` and
@@ -121,7 +121,7 @@ GameOver.unity (or overlay object)
 ### 4. Remove dead code — /refactor-clean
 
 ```
-/refactor-clean
+/refactor-clean Scan "Dash & Collect" for: unused using directives, empty MonoBehaviour methods, scripts not referenced by any scene or prefab, commented-out code, and Debug.Log calls not wrapped in a debug flag. Propose deletions before removing anything.
 ```
 
 The `refactor-cleaner` agent scans for:
@@ -136,7 +136,7 @@ The agent proposes deletions and waits for confirmation before removing anything
 ### 5. Sync documentation — /update-docs
 
 ```
-/update-docs
+/update-docs Sync documentation for "Dash & Collect": compare implemented systems against GDD and TDD, check Audio Bible SFX event names match code, check milestone plan dates. Generate a diff of changes needed — do not write anything until approved.
 ```
 
 The `doc-updater` agent compares the implemented systems against the GDD and TDD,
