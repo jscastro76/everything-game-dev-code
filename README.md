@@ -6,10 +6,10 @@ A universal scaffold for AI-assisted game development workflows across **Unity**
 
 This repository is designed as a structured operating system for game projects, not just a prompt collection. It combines:
 - **rules** for policy and standards
-- **agents** for role specialization
-- **commands** for repeatable entry points
-- **skills** for reusable execution patterns
-- **contexts** for phase-specific behavior
+- **41 agents** for role specialization
+- **46 commands** for repeatable entry points
+- **80+ skills** for reusable execution patterns
+- **10 contexts** for phase-specific behavior
 - **hooks** for workflow automation
 - **harness adapters** for Claude, Codex, Cursor, OpenCode, and Kiro
 
