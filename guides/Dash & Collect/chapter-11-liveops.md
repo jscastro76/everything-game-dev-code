@@ -1,4 +1,4 @@
-# Chapter 9 — Post-Launch & Live Ops
+# Chapter 11 — Post-Launch & Live Ops
 
 **Goal:** Instrument the live game with telemetry, plan the first post-launch update, and capture lessons learned back into the scaffold.
 

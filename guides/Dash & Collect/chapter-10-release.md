@@ -1,4 +1,4 @@
-# Chapter 8 — Release
+# Chapter 10 — Release
 
 **Goal:** Run the release readiness checklist, build the project, generate patch notes, and certify the build for distribution.
 
@@ -261,4 +261,4 @@ summary of all decisions made, commands run, and agents invoked during the relea
 
 ## Next
 
-[Chapter 9 — Post-Launch & Live Ops](./chapter-09-liveops.md)
+[Chapter 11 — Post-Launch & Live Ops](./chapter-11-liveops.md)

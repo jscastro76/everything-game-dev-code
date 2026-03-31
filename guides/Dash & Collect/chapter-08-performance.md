@@ -1,4 +1,4 @@
-# Chapter 6 — Performance Pass
+# Chapter 8 — Performance Pass
 
 **Goal:** Profile and optimize the game against the budgets defined in pre-production.
 
@@ -197,4 +197,4 @@ This is the gate before QA. No QA sign-off until performance budgets are met.
 
 ## Next
 
-[Chapter 7 — QA & Testing](./chapter-07-qa.md)
+[Chapter 9 — QA & Testing](./chapter-09-qa.md)

@@ -47,6 +47,8 @@ Commands do not replace judgment. They channel it.
 | `/evolve` | Iteratively refine an existing system or feature |
 | `/tools-pass` | Improve or extend editor and pipeline tooling |
 | `/audio-pass` | Review and implement audio integration for a system or scene |
+| `/art-2d-pass` | Review 2D art assets for naming, resolution, atlas config, animation, and placeholders |
+| `/ui-asset-pass` | Review UI visual assets for naming, 9-slice, atlas, theme consistency, and animations |
 | `/learn` | Synthesize a learning objective into reusable scaffold knowledge |
 | `/skill-create-game` | Create a new game-dev skill for this scaffold |
 

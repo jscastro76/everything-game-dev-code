@@ -20,6 +20,7 @@ before any final art or audio is produced.
 
 ## Required Skills
 - unity-project-structure
+- placeholder-asset-pipeline
 
 ## Expected Output
 - A Unity Editor script at `Assets/_Project/Editor/PlaceholderAssetGenerator.cs`

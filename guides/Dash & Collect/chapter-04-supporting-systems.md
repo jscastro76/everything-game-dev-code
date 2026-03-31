@@ -419,4 +419,4 @@ Do not proceed to Chapter 5 until all M4 criteria are met.
 
 ## Next
 
-[Chapter 5 — Code Review & Scene Audit](./chapter-05-review.md)
+[Chapter 5 — 2D Art Assets](./chapter-05-2d-art.md)

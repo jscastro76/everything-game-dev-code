@@ -29,11 +29,13 @@ A complete walkthrough for building a 2D endless runner using the **everything-g
 | [Chapter 2](./chapter-02-preproduction.md) | Pre-Production | `contexts/preproduction.md` |
 | [Chapter 3](./chapter-03-core-systems.md) | Core Systems | `contexts/production.md` |
 | [Chapter 4](./chapter-04-supporting-systems.md) | UI / Input / Audio / Save | `contexts/production.md` |
-| [Chapter 5](./chapter-05-review.md) | Code Review & Scene Audit | `contexts/review.md` |
-| [Chapter 6](./chapter-06-performance.md) | Performance Pass | `contexts/performance.md` |
-| [Chapter 7](./chapter-07-qa.md) | QA & Testing | `contexts/qa.md` |
-| [Chapter 8](./chapter-08-release.md) | Release | `contexts/release.md` |
-| [Chapter 9](./chapter-09-liveops.md) | Post-Launch & Live Ops | `contexts/liveops.md` |
+| [Chapter 5](./chapter-05-2d-art.md) | 2D Art Assets | `contexts/production.md` |
+| [Chapter 6](./chapter-06-ui-art.md) | UI Art Assets | `contexts/production.md` |
+| [Chapter 7](./chapter-07-review.md) | Code Review & Scene Audit | `contexts/review.md` |
+| [Chapter 8](./chapter-08-performance.md) | Performance Pass | `contexts/performance.md` |
+| [Chapter 9](./chapter-09-qa.md) | QA & Testing | `contexts/qa.md` |
+| [Chapter 10](./chapter-10-release.md) | Release | `contexts/release.md` |
+| [Chapter 11](./chapter-11-liveops.md) | Post-Launch & Live Ops | `contexts/liveops.md` |
 
 ---
 

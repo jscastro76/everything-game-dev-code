@@ -21,6 +21,7 @@ scene — so the game is immediately playable in the Unity Editor without any ma
 ## Required Skills
 - unity-project-structure
 - gameplay-architecture
+- placeholder-asset-pipeline
 
 ## Expected Output
 - A Unity Editor script at `Assets/_Project/Editor/SceneBootstrapper.cs`

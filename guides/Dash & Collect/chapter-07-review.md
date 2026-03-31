@@ -1,4 +1,4 @@
-# Chapter 5 — Code Review & Scene Audit
+# Chapter 7 — Code Review & Scene Audit
 
 **Goal:** Review all code and scenes for quality, correctness, architectural patterns, and documentation sync.
 
@@ -214,4 +214,4 @@ are clean.
 
 ## Next
 
-[Chapter 6 — Performance Pass](./chapter-06-performance.md)
+[Chapter 8 — Performance Pass](./chapter-08-performance.md)

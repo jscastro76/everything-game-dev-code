@@ -1,4 +1,4 @@
-# Chapter 7 — QA & Testing
+# Chapter 9 — QA & Testing
 
 **Goal:** Define the test plan, run automated tests, conduct a structured playtest, triage bugs, and achieve QA sign-off.
 
@@ -290,4 +290,4 @@ This is **Milestone M7**.
 
 ## Next
 
-[Chapter 8 — Release](./chapter-08-release.md)
+[Chapter 10 — Release](./chapter-10-release.md)
