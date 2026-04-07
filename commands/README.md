@@ -111,6 +111,7 @@ Commands do not replace judgment. They channel it.
 | Command | Purpose |
 |---------|---------|
 | `/orchestrate` | Coordinate a multi-agent workflow across a complex task |
+| `/full-game` | Build a complete game from idea to playable build, executing every phase end-to-end |
 
 ## How to invoke a command
 

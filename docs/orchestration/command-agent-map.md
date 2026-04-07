@@ -49,6 +49,24 @@ Primary: `planner`
 Support:
 - whichever domain leads are required by the request
 
+### /full-game
+Primary: `planner`
+Support:
+- `gdd-designer`
+- `systems-designer`
+- `architect`
+- `technical-design-lead`
+- `gameplay-programmer`
+- `ui-programmer`
+- `ui-ux-designer`
+- `2d-artist`
+- `producer`
+- `code-reviewer`
+- `qa-lead`
+- `performance-reviewer`
+- `release-manager`
+- engine-specific reviewer based on target platform
+
 ### /update-docs
 Primary: `doc-updater`
 Support:
