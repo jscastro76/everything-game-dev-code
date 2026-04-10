@@ -31,6 +31,39 @@ Not just a prompt collection — a structured operating system for game projects
 - **Hooks** for workflow automation
 - **Harness adapters** for Claude, Codex, Cursor, OpenCode, and Kiro
 
+## Quickstart
+
+```bash
+git clone https://github.com/MRCalderon3D/everything-game-dev-code.git
+cd everything-game-dev-code
+```
+
+Open the folder in your AI coding assistant (Claude Code, Cursor, Codex, OpenCode, or Kiro). The scaffold is loaded automatically from `CLAUDE.md` and `rules/`.
+
+Then type commands in the chat:
+
+| Command | What it does |
+|---------|-------------|
+| `/plan` | Outline your project before coding |
+| `/gdd` | Generate a Game Design Document |
+| `/tdd` | Generate a Technical Design Document |
+| `/scene-bootstrap` | Scaffold a new scene |
+| `/unity-setup` | Bootstrap a Unity project with conventions |
+| `/unity-build-fix` | Diagnose and fix Unity build errors |
+| `/godot-setup` | Bootstrap a Godot project |
+| `/unreal-setup` | Bootstrap an Unreal project |
+| `/full-game` | Orchestrate an entire game from scratch (experimental) |
+
+You don't have to follow a specific order. Pick whatever command fits your current need — start a new project, generate a GDD for an existing one, run a QA review, or fix a build error.
+
+### Step-by-step guide
+
+The `guides/Dash & Collect/` folder contains a full tutorial that walks through building a game using the scaffold's commands, agents, skills, and contexts across all project phases.
+
+### Example project
+
+The `PirateInvaders/` folder contains a complete HTML game built with the `/full-game` command in a single pass. For real projects, we recommend going step by step.
+
 ## Goals
 - Keep shared game-development standards engine-neutral.
 - Let Unity, Unreal, and Godot each extend the base cleanly without contaminating one another.
@@ -73,15 +106,6 @@ Shared documents should describe **intent**, **ownership**, and **quality bars**
 - QA and release readiness reviews
 - Plugin / content / tooling governance
 - Cross-discipline planning and orchestration
-
-## Recommended Start Order
-If you are using this repository from scratch:
-1. Read `CLAUDE.md` and `AGENTS.md`
-2. Choose or create an install profile in `manifests/`
-3. Confirm the target engine layer
-4. Review `rules/common/` plus the relevant engine rules
-5. Use `commands/plan.md` before implementation begins
-6. Keep `docs/`, `contexts/`, and `hooks/` aligned as the project evolves
 
 ## Supported Harnesses
 - Claude Code
