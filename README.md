@@ -38,7 +38,7 @@ git clone https://github.com/MRCalderon3D/everything-game-dev-code.git
 cd everything-game-dev-code
 ```
 
-Open the folder in your AI coding assistant (Claude Code, Cursor, Codex, OpenCode, or Kiro). The scaffold is loaded automatically from `CLAUDE.md` and `rules/`.
+Open the folder in your AI coding assistant (Claude Code, Cursor, Codex, OpenCode, or Kiro). The scaffold is loaded from the assistant's adapter plus the shared `AGENTS.md`, `rules/`, `commands/`, `agents/`, and `skills/` layers.
 
 Then type commands in the chat:
 
@@ -115,6 +115,10 @@ Shared documents should describe **intent**, **ownership**, and **quality bars**
 - Kiro
 
 Each harness adapter points back to the same shared scaffold rather than becoming a second source of truth.
+
+### Codex usage
+Codex should start from `AGENTS.md` and `.codex/README.md`. Slash-style commands such as `/plan`, `/gdd`, and `/unity-review` map to `commands/<name>.md`; if the Codex client does not execute slash commands natively, type the command name in chat and ask Codex to run the matching scaffold command.
+For raster-first asset work in Codex, use `$imagegen` alongside the shared art pipeline skills. Good fits include concept sheets, sprite source art, UI mockups, marketing key art, painted backgrounds, and bitmap edits; keep vector/code-native asset work in the normal repo workflows. If a generated image becomes a real project asset, move the selected file from `$CODEX_HOME/generated_images/...` into the workspace and keep the scaffold's naming and folder conventions.
 
 ## Current Status
 The scaffold is intentionally modular. Different blocks may be added or replaced over time, but the repository should always preserve:

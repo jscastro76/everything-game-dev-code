@@ -22,6 +22,7 @@ Review the project's 2D art assets — sprites, tilemaps, animations, and placeh
 - tilemap-pipeline
 - 2d-animation-pipeline
 - placeholder-asset-pipeline
+- generated-raster-asset-pipeline
 - art-bible
 
 ## Expected Output
@@ -29,6 +30,8 @@ Review the project's 2D art assets — sprites, tilemaps, animations, and placeh
   - sprite naming, resolution, and atlas compliance
   - tileset completeness and auto-tile rule correctness
   - animation frame rate, state machine, and memory validation
+  - transparency readiness, crop cleanliness, and generated-raster acceptance checks where applicable
+  - declared display-size vs body-size agreement for gameplay-relevant raster assets
   - placeholder-to-final replacement readiness
 - Clear pass/fail per category with actionable fix recommendations.
 - Escalation notes for issues that affect performance budgets or gameplay.
@@ -36,4 +39,5 @@ Review the project's 2D art assets — sprites, tilemaps, animations, and placeh
 ## Notes
 - This command is engine-neutral. For engine-specific import settings, defer to the relevant engine reviewer.
 - Run after `/unity-placeholders` or equivalent to verify placeholder quality before gameplay testing.
+- Treat externally generated raster art the same as hand-authored art: validate naming, import settings, atlas fit, and placeholder replacement compatibility before accepting it.
 - Escalate to `performance-reviewer` when atlas size or animation memory exceeds platform budgets.
