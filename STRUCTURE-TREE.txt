@@ -15,6 +15,7 @@ everything-game-dev-code
 │   │   ├── context.md
 │   │   ├── dialogue-design.md
 │   │   ├── economy-balance.md
+│   │   ├── environment-build.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
 │   │   ├── game-feel-pass.md
@@ -102,6 +103,7 @@ everything-game-dev-code
 │   │   ├── context.md
 │   │   ├── dialogue-design.md
 │   │   ├── economy-balance.md
+│   │   ├── environment-build.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
 │   │   ├── game-feel-pass.md
@@ -182,6 +184,7 @@ everything-game-dev-code
 │   │   ├── context.md
 │   │   ├── dialogue-design.md
 │   │   ├── economy-balance.md
+│   │   ├── environment-build.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
 │   │   ├── game-feel-pass.md
@@ -273,6 +276,7 @@ everything-game-dev-code
 │   │   ├── context.md
 │   │   ├── dialogue-design.md
 │   │   ├── economy-balance.md
+│   │   ├── environment-build.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
 │   │   ├── game-feel-pass.md
@@ -355,6 +359,7 @@ everything-game-dev-code
 │   │   ├── context.md
 │   │   ├── dialogue-design.md
 │   │   ├── economy-balance.md
+│   │   ├── environment-build.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
 │   │   ├── game-feel-pass.md
@@ -435,6 +440,7 @@ everything-game-dev-code
 │   └── tui.json
 ├── agents
 │   ├── 2d-artist.md
+│   ├── 3d-environment-artist.md
 │   ├── accessibility-reviewer.md
 │   ├── ai-programmer.md
 │   ├── animation-programmer.md
@@ -489,6 +495,7 @@ everything-game-dev-code
 │   ├── context.md
 │   ├── dialogue-design.md
 │   ├── economy-balance.md
+│   ├── environment-build.md
 │   ├── evolve.md
 │   ├── full-game.md
 │   ├── game-feel-pass.md
@@ -1352,10 +1359,12 @@ everything-game-dev-code
 │   │   ├── mcp-catalog.js
 │   │   ├── profile-resolution.js
 │   │   ├── schema-validation.js
+│   │   ├── skill-layout.js
 │   │   ├── structure-artifacts.js
 │   │   ├── text.js
 │   │   ├── utils.js
 │   │   └── validation.js
+│   ├── blender-bridge.py
 │   ├── doctor.js
 │   ├── generate-assets.js
 │   ├── generate-dependency-graph.js
@@ -1391,6 +1400,8 @@ everything-game-dev-code
 │   │   ├── art-bible
 │   │   │   └── SKILL.md
 │   │   ├── audio-implementation
+│   │   │   └── SKILL.md
+│   │   ├── blender-environment-pipeline
 │   │   │   └── SKILL.md
 │   │   ├── cinematic-pipeline
 │   │   │   └── SKILL.md
@@ -1431,6 +1442,10 @@ everything-game-dev-code
 │   │   ├── economy-balancing
 │   │   │   └── SKILL.md
 │   │   ├── game-feel-design
+│   │   │   ├── references
+│   │   │   │   ├── hit-stop.md
+│   │   │   │   ├── movement-and-camera.md
+│   │   │   │   └── response-and-tempo.md
 │   │   │   └── SKILL.md
 │   │   ├── level-design
 │   │   │   └── SKILL.md
@@ -1532,6 +1547,8 @@ everything-game-dev-code
 │   │   │   └── SKILL.md
 │   │   ├── unity-editor-tooling
 │   │   │   └── SKILL.md
+│   │   ├── unity-environment-assembly
+│   │   │   └── SKILL.md
 │   │   ├── unity-gameplay-patterns
 │   │   │   └── SKILL.md
 │   │   ├── unity-input-system
@@ -1628,7 +1645,8 @@ everything-game-dev-code
 │   │   ├── mcp-configs.test.js
 │   │   ├── new-engine.test.js
 │   │   ├── new-harness.test.js
-│   │   └── setup-profile.test.js
+│   │   ├── setup-profile.test.js
+│   │   └── skill-layout.test.js
 │   ├── README.md
 │   └── run-all.js
 ├── .env.example
