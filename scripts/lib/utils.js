@@ -70,6 +70,13 @@ function flattenEventText(event) {
   return collectStrings(event).join("\n");
 }
 
+// Path of the file a Write/Edit/MultiEdit event targets, or "" for other tools.
+function eventTargetFile(event) {
+  const input = (event && event.tool_input) || {};
+  return String(input.file_path || input.path || "");
+}
+
+// block: true asks the harness adapter to deny the tool call (PreToolUse only).
 function result({
   ok = true,
   status = "ok",
@@ -78,14 +85,16 @@ function result({
   severity = "info",
   tags = [],
   data = {},
+  block = false,
 } = {}) {
-  const payload = { ok, status, title, message, severity, tags, data };
+  const payload = { ok, status, title, message, severity, tags, data, block };
   process.stdout.write(JSON.stringify(payload, null, 2));
 }
 
 module.exports = {
   appendText,
   ensureDir,
+  eventTargetFile,
   flattenEventText,
   normalizeText,
   readEvent,

@@ -29,6 +29,11 @@
             "items": { "type": "string", "minLength": 1 },
             "description": "Lowercase substrings that identify project paths/content as belonging to this engine."
           },
+          "exclusiveFileSuffixes": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 },
+            "description": "Lowercase file-path suffixes that only this engine produces. A write to such a file while a different engine profile is active is blocked, so list only unambiguous file types; leave empty when the engine has none."
+          },
           "buildResolverAgent": {
             "type": "boolean",
             "description": "Whether the engine layer ships a dedicated agents/<id>-build-resolver.md."

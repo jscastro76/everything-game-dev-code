@@ -31,8 +31,9 @@ The schema also reserves `SessionStart` and `SessionEnd` phases for future use; 
 
 | Hook | File | Triggers when |
 |------|------|--------------|
+| Generated file guard | `generated-file-guard.js` | **Blocks** a hand edit to a generated artifact (wrappers, structure artifacts, dependency graph, MCP configs, Cursor hook wiring) |
 | GDD sync warning | `gdd-sync-warning.js` | Design changes detected without a corresponding doc update |
-| Engine profile guard | `engine-profile-guard.js` | Engine-specific work attempted without an active engine profile |
+| Engine profile guard | `engine-profile-guard.js` | Engine-specific work attempted without an active engine profile; **blocks** a write to another engine's exclusive file type (see below) |
 | Scene integrity check | `scene-integrity-check.js` | Heavy edits to scene, level, or mission files |
 | Prefab/Blueprint/node warning | `prefab-blueprint-node-warning.js` | Significant changes to prefabs, Blueprints, or node hierarchies without clear ownership |
 | Performance budget warning | `performance-budget-warning.js` | Modifications to performance-sensitive systems (rendering, physics, memory) |
@@ -51,6 +52,15 @@ The schema also reserves `SessionStart` and `SessionEnd` phases for future use; 
 | Hook | File | Produces |
 |------|------|---------|
 | Session summary | `session-summary.js` | Structured summary of decisions made, risks identified, and follow-ups required |
+
+## Warnings and blocks
+
+Hooks warn by default. Two PreToolUse hooks block the tool call, because the violation is deterministic and the fix is unambiguous:
+
+- **Generated file guard** — the target is generator output. The list lives in `scripts/lib/generated-artifacts.js` and is derived from `manifests/harnesses.json`. The message names the source file and the `sync:*` command.
+- **Engine profile guard** — the target file ends in one of another engine's `exclusiveFileSuffixes` (`manifests/engines.json`) while a different valid engine profile is active. Fuzzy path detection (`pathMarkers`) still only warns.
+
+A hook blocks by returning `block: true` in its result. A hook that crashes or returns malformed output never blocks. Set `GAME_DEV_HOOKS_WARN_ONLY=1` to downgrade every block to a warning. Blocking is implemented by the Claude Code adapter; under Cursor the same hooks report without blocking.
 
 ## Configuration
 
@@ -76,7 +86,7 @@ The JSON structure is validated against `schemas/hooks.schema.json`.
 
 Per-harness wiring is generated from `hooks/hooks.json` — never edit the wiring files by hand:
 
-- `.claude/settings.json` (hooks block) — Claude Code fires `scripts/hooks/claude-adapter.js` once per phase event; the adapter runs every matching hook script and surfaces warnings as a system message. Hooks are warn-only: the adapter always exits 0 and never blocks the session.
+- `.claude/settings.json` (hooks block) — Claude Code fires `scripts/hooks/claude-adapter.js` once per phase event; the adapter runs every matching hook script and surfaces warnings as a system message. A PreToolUse hook that returns `block: true` denies the tool call; everything else is a warning.
 - `.cursor/hooks.json` — Cursor invokes each hook script directly with translated phase and matcher names.
 
 Run `npm run sync:hook-wiring` after changing `hooks.json`; `npm run validate:hooks` fails when committed wiring drifts from the source.

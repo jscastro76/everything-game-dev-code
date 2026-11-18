@@ -50,6 +50,21 @@ function detectProfileFromPaths(text) {
   return "";
 }
 
+// Stricter than detectProfileFromPaths: looks only at one file path and only at
+// suffixes no other engine produces. Safe to block on; "" when not conclusive.
+function detectExclusiveEngineForFile(filePath) {
+  const target = String(filePath || "").toLowerCase();
+  if (!target) {
+    return "";
+  }
+  for (const engine of loadEngines()) {
+    if ((engine.exclusiveFileSuffixes || []).some((suffix) => target.endsWith(suffix))) {
+      return engine.id;
+    }
+  }
+  return "";
+}
+
 function isValidProfile(profile) {
   return ENGINE_PROFILES.includes(profile);
 }
@@ -63,6 +78,7 @@ function getProfileInfo(profile = getActiveProfile()) {
 }
 
 module.exports = {
+  detectExclusiveEngineForFile,
   detectProfileFromPaths,
   ENGINE_PROFILES,
   getActiveProfile,
