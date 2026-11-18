@@ -7,24 +7,28 @@
       "id": "web",
       "display": "Web (HTML5)",
       "pathMarkers": ["index.html", "<canvas", "phaser", "requestanimationframe"],
+      "exclusiveFileSuffixes": [],
       "buildResolverAgent": false
     },
     {
       "id": "unity",
       "display": "Unity",
       "pathMarkers": ["assets/", ".unity", "projectsettings/"],
+      "exclusiveFileSuffixes": [".unity", ".prefab", ".asmdef"],
       "buildResolverAgent": true
     },
     {
       "id": "unreal",
       "display": "Unreal Engine",
       "pathMarkers": [".uproject", "/content/", ".uasset", ".umap"],
+      "exclusiveFileSuffixes": [".uproject", ".uasset", ".umap"],
       "buildResolverAgent": true
     },
     {
       "id": "godot",
       "display": "Godot",
       "pathMarkers": ["project.godot", ".tscn", ".tres"],
+      "exclusiveFileSuffixes": ["project.godot", ".tscn", ".tres", ".gd"],
       "buildResolverAgent": true
     }
   ]

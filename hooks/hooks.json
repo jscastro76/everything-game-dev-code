@@ -12,6 +12,12 @@
   "hooks": {
     "PreToolUse": [
       {
+        "id": "generated-file-guard",
+        "matcher": "Write|Edit|MultiEdit",
+        "script": "../scripts/hooks/generated-file-guard.js",
+        "description": "Block hand edits to generated artifacts and point to the source file and sync command."
+      },
+      {
         "id": "gdd-sync-warning",
         "matcher": "Write|Edit|MultiEdit",
         "script": "../scripts/hooks/gdd-sync-warning.js",
@@ -21,7 +27,7 @@
         "id": "engine-profile-guard",
         "matcher": "Bash|Write|Edit|MultiEdit",
         "script": "../scripts/hooks/engine-profile-guard.js",
-        "description": "Warn when engine-specific work is attempted without an active Unity, Unreal, or Godot profile."
+        "description": "Warn when engine-specific work is attempted without an active engine profile; block writes to another engine's exclusive file types."
       },
       {
         "id": "scene-integrity-check",
