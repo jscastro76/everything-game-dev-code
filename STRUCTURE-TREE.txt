@@ -1347,6 +1347,7 @@ everything-game-dev-code
 │   │   ├── crash-log-capture.js
 │   │   ├── engine-profile-guard.js
 │   │   ├── gdd-sync-warning.js
+│   │   ├── generated-file-guard.js
 │   │   ├── performance-budget-warning.js
 │   │   ├── playtest-capture.js
 │   │   ├── prefab-blueprint-node-warning.js
@@ -1354,6 +1355,7 @@ everything-game-dev-code
 │   │   └── session-summary.js
 │   ├── lib
 │   │   ├── engines.js
+│   │   ├── generated-artifacts.js
 │   │   ├── harnesses.js
 │   │   ├── hook-wiring.js
 │   │   ├── mcp-catalog.js
@@ -1627,6 +1629,7 @@ everything-game-dev-code
 │   ├── ci
 │   │   └── readme.test.js
 │   ├── hooks
+│   │   ├── blocking-hooks.test.js
 │   │   └── hooks-config.test.js
 │   ├── integration
 │   │   ├── install-profile-script.test.js

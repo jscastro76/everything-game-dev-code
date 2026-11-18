@@ -45,6 +45,9 @@ and fails if they'd change).
 | scaffold layers | `docs/dependency-graph.*` | `npm run sync:graph` / `validate:graph` |
 
 Workflow when you change a source file: edit the source → run the matching `sync:*` → commit both.
+Under Claude Code, a PreToolUse hook (`generated-file-guard`) denies Write/Edit calls on these generated files
+and names the source and sync command; `GAME_DEV_HOOKS_WARN_ONLY=1` turns that into a warning.
+
 The pre-commit hook (`.githooks/pre-commit`) auto-runs `sync:structure` + structure/markdown
 validation and stages the regenerated artifacts, so structure drift is caught before it lands.
 

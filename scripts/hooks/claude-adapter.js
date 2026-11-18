@@ -5,8 +5,13 @@
 // scripts/generate-hook-wiring.js). The adapter reads the event payload from
 // stdin, runs every hooks/hooks.json entry of the given phase whose matcher
 // matches the tool, translates the scaffold's stdout-json result contract
-// ({status, severity, title, message}) into a Claude Code systemMessage, and
-// ALWAYS exits 0 so a hook can warn but never block the session.
+// ({status, severity, title, message, block}) into a Claude Code systemMessage.
+//
+// Hooks warn by default. A PreToolUse hook may return block: true to deny the
+// tool call; that is reserved for deterministic violations (a hand edit to a
+// generated file, an engine-exclusive file under another engine's profile).
+// GAME_DEV_HOOKS_WARN_ONLY=1 downgrades every block to a warning. The adapter
+// itself always exits 0: a crashed or malformed hook never blocks the session.
 
 const fs = require("fs");
 const path = require("path");
@@ -38,6 +43,8 @@ function matcherMatches(matcher, toolName) {
   const entries = (hooksConfig.hooks || {})[phase] || [];
 
   const warnings = [];
+  const blocks = [];
+  const canBlock = phase === "PreToolUse" && process.env.GAME_DEV_HOOKS_WARN_ONLY !== "1";
   for (const entry of entries) {
     if (entry.enabled === false || !matcherMatches(entry.matcher, toolName)) {
       continue;
@@ -58,15 +65,27 @@ function matcherMatches(matcher, toolName) {
     } catch {
       continue;
     }
-    if (parsed.severity === "warning" || parsed.severity === "error") {
-      warnings.push(`${parsed.title || entry.id}: ${parsed.message || ""}`.trim());
+    const line = `${parsed.title || entry.id}: ${parsed.message || ""}`.trim();
+    if (canBlock && parsed.ok === true && parsed.block === true) {
+      blocks.push(line);
+    } else if (parsed.severity === "warning" || parsed.severity === "error") {
+      warnings.push(line);
     }
   }
 
+  const output = {};
+  if (blocks.length > 0) {
+    output.hookSpecificOutput = {
+      hookEventName: "PreToolUse",
+      permissionDecision: "deny",
+      permissionDecisionReason: `[game-dev hooks] ${blocks.join(" | ")}`,
+    };
+  }
   if (warnings.length > 0) {
-    process.stdout.write(
-      JSON.stringify({ systemMessage: `[game-dev hooks] ${warnings.join(" | ")}` })
-    );
+    output.systemMessage = `[game-dev hooks] ${warnings.join(" | ")}`;
+  }
+  if (Object.keys(output).length > 0) {
+    process.stdout.write(JSON.stringify(output));
   }
   process.exit(0);
 })().catch(() => {

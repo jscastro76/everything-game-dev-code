@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-const { flattenEventText, readEvent, result } = require("../lib/utils");
-const { detectProfileFromPaths, ENGINE_PROFILES, getActiveProfile, isValidProfile } = require("../lib/profile-resolution");
+const { eventTargetFile, flattenEventText, readEvent, result } = require("../lib/utils");
+const { detectExclusiveEngineForFile, detectProfileFromPaths, ENGINE_PROFILES, getActiveProfile, isValidProfile } = require("../lib/profile-resolution");
 
 (async function main() {
   const event = await readEvent();
@@ -12,8 +12,17 @@ const { detectProfileFromPaths, ENGINE_PROFILES, getActiveProfile, isValidProfil
   let status = "ok";
   let severity = "info";
   let message = "No engine profile issue detected.";
+  let block = false;
 
-  if (needsProfile && !isValidProfile(active)) {
+  const targetFile = eventTargetFile(event);
+  const exclusive = detectExclusiveEngineForFile(targetFile);
+
+  if (exclusive && isValidProfile(active) && active !== exclusive) {
+    status = "blocked";
+    severity = "error";
+    block = true;
+    message = `${targetFile} is a ${exclusive} file but the active engine profile is ${active}. Engine layers must not be mixed in one pass: switch the profile to ${exclusive} first, or keep the change inside the ${active} layer.`;
+  } else if (needsProfile && !isValidProfile(active)) {
     status = "attention";
     severity = "warning";
     message = `Detected likely ${detected} work but no active GAME_DEV_PROFILE is set. Activate one of ${ENGINE_PROFILES.join(", ")} before continuing.`;
@@ -29,10 +38,12 @@ const { detectProfileFromPaths, ENGINE_PROFILES, getActiveProfile, isValidProfil
     title: "Engine profile guard",
     message,
     severity,
+    block,
     tags: ["profile", "engine-isolation", "workflow"],
     data: {
       active_profile: active,
       detected_profile: detected,
+      exclusive_file_engine: exclusive,
       needs_profile: needsProfile
     }
   });

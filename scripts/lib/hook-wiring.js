@@ -35,7 +35,8 @@ function claudeMatcherUnion(entries) {
 
 // One adapter invocation per phase: the adapter reads the event payload,
 // matches it against hooks/hooks.json entries itself, and runs the matching
-// scripts. Warn-only: the adapter always exits 0.
+// scripts. The adapter always exits 0; a PreToolUse hook can still deny a tool
+// call through the adapter's JSON output (see claude-adapter.js).
 function buildClaudeHooks(hooksConfig) {
   const result = {};
   for (const [phase, entries] of Object.entries(hooksConfig.hooks || {})) {

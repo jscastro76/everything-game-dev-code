@@ -4,6 +4,10 @@
     "preToolUse": [
       {
         "matcher": "write|edit|multi_edit",
+        "command": "node scripts/hooks/generated-file-guard.js"
+      },
+      {
+        "matcher": "write|edit|multi_edit",
         "command": "node scripts/hooks/gdd-sync-warning.js"
       },
       {

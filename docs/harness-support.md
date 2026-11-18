@@ -22,10 +22,10 @@ human context (tiers, rationale, notes).
 
 | Adapter | Tier | Commands | Rules | Hooks | Notes |
 |---------|------|----------|-------|-------|-------|
-| `.claude/` | Full | 66 generated wrappers | `CLAUDE.md` + shared `rules/` | 10, generated `settings.json` block (warn-only adapter) | Primary harness; plugin packaging lives in `.claude-plugin/` |
+| `.claude/` | Full | 66 generated wrappers | `CLAUDE.md` + shared `rules/` | 11, generated `settings.json` block (adapter warns; two hooks block) | Primary harness; plugin packaging lives in `.claude-plugin/` |
 | `.codex/` | Full | 66 generated wrappers | `AGENTS.md` + shared `rules/` | none (run `npm run validate` manually) | |
 | `.opencode/` | Full | 66 generated wrappers + `opencode.json` registry | `AGENTS.md` + shared `rules/` | none | |
-| `.cursor/` | Full | 66 generated wrappers (`.cursor/commands/`) | `.cursor/rules/*.mdc` | 10, generated `hooks.json` | |
+| `.cursor/` | Full | 66 generated wrappers (`.cursor/commands/`) | `.cursor/rules/*.mdc` | 11, generated `hooks.json` (report only) | |
 | `.kiro/` | Rules only | none by design | `.kiro/steering/*.md` | none | |
 | `.grok/` | Rules only | none (no project-scoped command support) | `AGENTS.md` + shared `rules/` (read natively) | none | MCP pre-wired via generated `.grok/config.toml` (`sync:mcp`) |
 | `.kilo/` | Full | 66 generated wrappers (`.kilo/command/`) | `AGENTS.md` + shared `rules/` (read natively) | none | MCP pre-wired via generated `.kilo/kilo.json` (`sync:mcp`); do not copy `agents/` into `.kilo/agent/` |
